@@ -6,3 +6,83 @@ body {
 a {
   color: #00B7FF;
 }
+
+header{
+  background-color: #00B7FF;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo{
+  background-color: green;
+  width: 20%;
+  height: 10vh;
+}
+
+.searchbar{
+  background-color: honeydew;
+  width: 55%;
+  display: flex;
+  align-items: center;
+}
+
+.searchform{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.cartuser{
+  background-color: hotpink;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbutton{
+  background-color: hotpink;
+  width: 10%;
+  margin-left: 1%;
+  height: 4vh;
+
+}
+
+.searchcontent{
+  width: 60%;
+  background-color: hotpink;
+  height: 3vh;
+}
+
+.menu{
+  background-color: indianred;
+  width: 100%;
+}
+
+.cartuser div{
+  background-color: indigo;
+  width: 20%;
+  height: 5vh;
+  margin: 1%;
+  color: white;
+  line-height: 5vh;
+  text-align: center;
+}
+
+.content{
+  background-color: tomato;
+}
+
+.content div{
+  width: 100%;
+  height: 45vh;
+  margin-top: 1%;
+}
+
+footer{
+  background-color: black;
+  color: white;
+  margin-top: 5%;
+  
+}
