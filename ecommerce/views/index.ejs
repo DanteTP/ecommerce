@@ -22,11 +22,30 @@
       <div class="menu">menu</div>
     </header>
     <div class="content">
-      <div class="offer">Ofertas</div>
-      <div class="recent">Visitados</div>
+      <div class="indextitle">Ofertas</div>
+      <div class="cards"><% for( let i = 0; i < 4; i++ ) { %>
+      
+        <div class="card">
+          <div class="cardimg"></div>
+          <div class="cardname"></div>
+          <div class="cardprice"></div>
+          <div class="cardbutton"></div>
+        </div>
+      <% } %></div>
+      
+      <div class="indextitle">Visitados</div>
+      <div class="cards"><% for( let i = 0; i < 4; i++ ) { %>
+      
+        <div class="card">
+          <div class="cardimg"></div>
+          <div class="cardname"></div>
+          <div class="cardprice"></div>
+          <div class="cardbutton"></div>
+        </div>
+      <% } %></div>
     </div>
-    <footer>
-      PIe de pagina
-    </footer>
+    
   </body>
-</html>
+  <footer>
+    PIe de pagina
+  </footer>
