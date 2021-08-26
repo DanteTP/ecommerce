@@ -5,43 +5,16 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <header>
-      <div class="logo">
-        Logo
-      </div>
-      <div class="searchbar">
-        <form class="searchform" action="">
-          <input class="searchcontent" type="text" placeholder="Contanos que estas buscando">
-          <input class="searchbutton" type="submit" value="">
-        </form>
-      </div>
-      <div class="cartuser">
-        <div>User</div>
-        <div>Cart</div>
-      </div>
-      <div class="menu">menu</div>
-    </header>
+    <% include ./partials/header.ejs %> 
     <div class="content">
       <div class="indextitle">Ofertas</div>
       <div class="cards"><% for( let i = 0; i < 4; i++ ) { %>
-      
-        <div class="card">
-          <div class="cardimg"></div>
-          <div class="cardname"></div>
-          <div class="cardprice"></div>
-          <div class="cardbutton"></div>
-        </div>
+        <% include ./partials/card.ejs %> 
       <% } %></div>
       
       <div class="indextitle">Visitados</div>
       <div class="cards"><% for( let i = 0; i < 4; i++ ) { %>
-      
-        <div class="card">
-          <div class="cardimg"></div>
-          <div class="cardname"></div>
-          <div class="cardprice"></div>
-          <div class="cardbutton"></div>
-        </div>
+        <% include ./partials/card.ejs %> 
       <% } %></div>
     </div>
     
