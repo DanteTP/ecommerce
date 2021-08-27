@@ -16,3 +16,73 @@
     height: 50vh;
     background-color: aqua;
 }
+
+.detailextra{
+    background-color: blue;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.description{
+    background-color: blueviolet;
+    width: 60%;
+}
+
+.description h1 {
+    color: white;
+    text-align: center;
+    font-weight: bolder;
+    text-shadow: 2px 2px 3px grey;
+}
+.comments{
+    width: 20%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stars{
+    background-color: violet;
+    width: 90%;
+    height: 5vh;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 200%;
+    text-shadow: 2px 2px 3px grey;
+}
+
+.comment{
+    background-color: teal;
+    width: 90%;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.commentcard{
+    width: 90%;
+    background-color: grey;
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+}
+
+.commentcard h2 {
+    display: flex;
+    justify-content: space-around;
+    color: rgb(190, 238, 190);
+    text-align: center;
+    padding: 0%;
+    background-color: honeydew;
+    margin: 0;
+}
+
+.commentcard p{
+    margin: 0%;
+    color:whitesmoke;
+}
