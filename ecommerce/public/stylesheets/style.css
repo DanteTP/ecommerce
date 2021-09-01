@@ -1,6 +1,7 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
 }
 
 a {
@@ -82,7 +83,6 @@ header{
 footer{
   background-color: black;
   color: white;
-  margin-top: -3%;
   width: 100%;
 }
 
@@ -109,10 +109,8 @@ footer{
   border-radius: 5%;
 }
 
-.cardimg{
+.cardimg img{
   height: 20vh;
-  width: 60%;
-  background-color: green;
 }
 
 .cardname{
