@@ -4,23 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='/stylesheets/loginstyle.css'>
+    <link rel='stylesheet' href='/stylesheets/registerstyle.css'>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://kit.fontawesome.com/f806648dd3.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <% include ./partials/header.ejs %> 
-    <div class="loginbody">
-        <div class="loginform">
-            <div class="login">
+    <div class="regbody">
+        <div class="regform">
+            <div class="register">
                 <form action="">
-                    <label  for="">Nombre</label>
-                    <input type="text" name="" id="">
+                    <div class="name">
+                    <label  for="nombre">Nombre</label>
                     <label  for="">Apellido</label>
-                    <input type="text" name="" id="">
+                    <input type="text" name="nombre" id="nombre">
+                    <input type="text" name="" id=""></div>
+                    <div class="contact">
                     <label for="">Dirección de mail</label>
-                    <input type="email" name="" id="">
+                    <input type="email" name="" id=""></div>
+                    <div class="address">
+                    <label  for="">Dirección</label>
+                    <label class="CP" for="">CP</label>
+                    <input type="text" name="" id="">
+                    <input class="CP" type="text" name="" id="">
+                    <label class="local" for="">Localidad</label>
+                    <label class="local" for="">Provincia</label>
+                    <input class="local" type="text" name="" id="">
+                    <input class="local" type="text" name="" id=""></div>
+                    <div class="name">
+                    <label for="">Contraseña</label>
+                    <label for="">Repetir contraseña</label>
+                    <input type="password" name="" id="">
+                    <input type="password" name="" id="">
+                    <p class="advert" style="color: red; display: none;">Las contraseñas no coinciden</p>
+                    <button type="submit">Registrarse</button>
+                </div>
                 </form>
             </div>  
         </div>
