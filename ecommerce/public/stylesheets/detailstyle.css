@@ -15,6 +15,26 @@
     width: 20%;
     height: 50vh;
     background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detaildetail div {
+    width: 90%;
+    background-color: hotpink;
+}
+
+.detaildetail h1{
+    width: 90%;
+    background-color: hotpink;
+    text-align: center;
+    font-size: 270%;
+}
+
+.detaildetail h2{
+    width: 90%;
+    background-color: hotpink;
 }
 
 .detailextra{

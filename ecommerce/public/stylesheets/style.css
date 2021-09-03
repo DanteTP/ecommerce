@@ -108,6 +108,7 @@ footer{
 }
 
 .card {
+  text-decoration: none;
   height: 45vh;
   width: 20%;
   background-color:rgb(233 232 232 / 96%);
@@ -119,17 +120,23 @@ footer{
   box-shadow: 0px 1px 5px 0px rgba(145,141,141,0.75);
 }
 
-.cardimg img{
-  height: 20vh;
+.cardimg{
+  display: flex;
+  justify-content: center;
 }
 
+.cardimg img{
+  width: 50%;
+}
 .cardname{
+  color: grey;
   width: 90%;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.377);
   font-size: 150%;
   text-align: center;
   font-weight: bolder;
   word-wrap: normal;
+  border-radius: 25px;
 }
 
 .cardprice {
@@ -142,9 +149,15 @@ footer{
 }
 
 .cardbutton{
-  height: 4vh;
-  background-color: black;
-  width: 90%;
+  text-decoration: none;
+  background-color: #6faaaa;
+  border-radius: 10px;
+  color: tomato;  
+  text-align: center;
+  margin-top: 5%;
+  width: 60%;
+  font-size: 170%;
+  font-weight: 600;
 }
 
 .indextitle{
