@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f806648dd3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/userstyle.css' />
+    <link rel='stylesheet' href='/stylesheets/registerstyle.css'>
+    <title>Document</title>
+</head>
+<body>
+    <% include ./partials/header.ejs %> 
+    <div class="userbody">
+        <div class="usermenu">
+            <div class="userimg"><img src="/images/user.png" alt=""></div>
+            <div class="username">Dante Tachella Parente</div>
+            <div class="useroptions">
+                <ul>
+                    <li class="menubutton">Datos personales</li>
+                    <div id="personales"><li  class="submenu">Editar datos</li>
+                    <li id="personales" class="submenu">Cambiar contraseña</li></div>
+                    <li class="menubutton">Mis pedidos</li>
+                    <div id="personales"><li id="pedidos" class="submenu">Pedidos pendientes</li>
+                    <li id="pedidos" class="submenu">Historial de pedidos</li></div>
+                </ul>
+            </div>
+        </div>
+        <div class="userinfo">
+            <!-- <div id="home" class="home">
+                <h1 style="text-align: center;">Bienvenido!</h1>
+            </div> -->
+            <!-- <div id="edit" class="register" style="margin-top: 2%;">
+                <h1 style="text-align: center;">Edición de datos personales</h1>
+                <form action="">
+                    <form action="/users/user">
+                        <div class="name">
+                        <label  for="nombre">Nombre</label>
+                        <label  for="">Apellido</label>
+                        <input type="text" name="nombre" id="nombre">
+                        <input type="text" name="" id=""></div>
+                        <div class="contact">
+                        <label for="">Dirección de mail</label>
+                        <input type="email" name="" id=""></div>
+                        <div class="address">
+                        <label  for="">Dirección</label>
+                        <label class="CP" for="">CP</label>
+                        <input type="text" name="" id="">
+                        <input class="CP" type="text" name="" id="">
+                        <label class="local" for="">Localidad</label>
+                        <label class="local" for="">Provincia</label>
+                        <input class="local" type="text" name="" id="">
+                        <input class="local" type="text" name="" id=""></div>
+                        <div class="name">
+                        <label for="">Contraseña</label>
+                        <label for="">Repetir contraseña</label>
+                        <input type="password" name="" id="">
+                        <input type="password" name="" id="">
+                        <p class="advert" style="color: red; display: none;">Las contraseñas no coinciden</p>
+                        <button type="submit">Editar</button>
+                </form>
+            </div> -->
+            <div id="password">
+                <div id="edit" class="register" style="margin-top: 2%;">
+                    <h1 style="text-align: center;">Cambiar contraseña</h1>
+                    <form action="/users/user">
+                        <div class="name">
+                        <label for="">Contraseña actual</label>
+                        <input type="password" name="" id="">
+                        <label style="margin-top: 3%;" for="">Contraseña nueva</label>
+                        <label style="margin-top: 3%; for="">Repetir contraseña</label>
+                        <input type="password" name="" id="">
+                        <input type="password" name="" id=""></div>
+                        <button class="regbutton" type="submit" style="margin-top: 0%;">Cambiar</button>
+                        <p class="advert" style="color: red; display: none;">Las contraseñas no coinciden</p>
+                </form></div>
+            </div>
+            <div id="history"></div>
+            <div id="pending"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -55,6 +55,15 @@
     font-size: small;
 }
 
+.login form p{
+    text-decoration: none;
+    color: grey;
+    margin-top: 10%;
+    margin-left: 3%;
+    text-align: center;
+    width: 90%;
+}
+
 .login form a{
     text-decoration: none;
     color: grey;
@@ -68,7 +77,7 @@
     text-decoration: none;
     background-color: teal;
     border-radius: 10px;
-    color: tomato;
+    color: whitesmoke;
     margin-top: 10%;
     margin-left: 17%;
     text-align: center;

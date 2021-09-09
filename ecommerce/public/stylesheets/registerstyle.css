@@ -47,7 +47,7 @@
     width: 45%;
 }
 
-input{
+.register form input{
     background-color: #f1f1f186;
     border: none;
     font-size: 100%;
@@ -104,11 +104,11 @@ input{
     width: 45%;
 }
 
-button{
+.regbutton{
     text-decoration: none;
-    background-color: #6faaaa;
+    background-color: teal;
     border-radius: 10px;
-    color: tomato;  
+    color: whitesmoke;  
     text-align: center;
     margin-top: 5%;
     width: 60%;

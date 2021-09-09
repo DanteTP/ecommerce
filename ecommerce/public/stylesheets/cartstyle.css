@@ -1,0 +1,15 @@
+.cartbody{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;    
+}
+
+
+
+
+
+.cartdelbutton{
+    width: 3%;
+    background-color: tomato;
+    border-radius: 200px;
+}

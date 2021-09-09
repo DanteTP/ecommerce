@@ -1,5 +1,4 @@
 .detailbody{
-    background-color: black;
     display: flex;
     justify-content: space-around;
     margin-top: 3%;
@@ -14,22 +13,69 @@
 .detaildetail{
     width: 20%;
     height: 50vh;
-    background-color: aqua;
+    border: 1px solid #cacaca;
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.detaildetail div {
+
+
+.detailtitle{
     width: 90%;
-    background-color: hotpink;
+    color: teal;
+    text-shadow: 1px 1px 7px rgba(52,44,44,0.6);
+    text-align: left;
+    font-size: 130%;
 }
 
-.detaildetail h1{
+.detailtitle h1{
+    margin: 15% 0em 0em 0em ;
+}
+
+.detailstock{
     width: 90%;
-    background-color: hotpink;
+    color: rgb(187, 184, 184);
+    margin-top: 25%;
+    text-align: center;    
+}
+
+.detailprice{
+    width: 90%;
+    color: grey;
+    text-align: left;
+    font-size: 180%;
+    font-weight: 600;
+    margin-top: 8%;
+}
+
+
+.detailcounter{
+    width: 50%;
+    border: 1px solid #cacaca;
+    border-radius: 25px;
+    height: 3vh;
+    margin-top: 12%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counterbut{
+    width: 20%;
+    /* background-color: beige; */
+    font-size: 150%;
     text-align: center;
-    font-size: 270%;
+    color: tomato;
+}
+
+.countervalue{
+    width: 40%;
+    /* background-color: blue; */
+    text-align: center;
+    color: grey;
+    font-size: 150%;
 }
 
 .detaildetail h2{
@@ -38,22 +84,24 @@
 }
 
 .detailextra{
-    background-color: blue;
     margin-top: 2%;
     display: flex;
     justify-content: space-around;
 }
 
 .description{
-    background-color: blueviolet;
     width: 60%;
+    font-size: 100%;
+    text-align: justify;
+    color: rgb(102, 95, 95);
 }
 
 .description h1 {
-    color: white;
+    color: grey;
     text-align: center;
     font-weight: bolder;
-    text-shadow: 2px 2px 3px grey;
+    text-shadow: 2px 2px 3px rgb(177, 175, 175);
+    text-decoration: underline grey;
 }
 .comments{
     width: 20%;
@@ -64,19 +112,17 @@
 }
 
 .stars{
-    background-color: violet;
     width: 90%;
     height: 5vh;
-    color: white;
+    color: rgb(190, 238, 190);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: 200%;
+    font-size: 170%;
     text-shadow: 2px 2px 3px grey;
 }
 
 .comment{
-    background-color: teal;
     width: 90%;
     margin-top: 3%;
     display: flex;
@@ -86,10 +132,8 @@
 
 .commentcard{
     width: 90%;
-    background-color: grey;
     margin-top: 2%;
     margin-bottom: 2%;
-
 }
 
 .commentcard h2 {
@@ -98,11 +142,28 @@
     color: rgb(190, 238, 190);
     text-align: center;
     padding: 0%;
-    background-color: honeydew;
     margin: 0;
 }
 
 .commentcard p{
     margin: 0%;
-    color:whitesmoke;
+    color:rgb(102, 95, 95);;
+    text-align: justify;
+}
+
+.detailaddcart{
+    width: 90%;
+}
+
+.detailaddcart form button {    text-decoration: none;
+    background-color: teal;
+    border-radius: 25px;
+    color: whitesmoke;
+    text-align: center;
+    width: 70%;
+    font-size: 120%;
+    font-weight: 500;
+    height: 4vh;
+    margin-left: 15%;
+    margin-top: 15%;
 }

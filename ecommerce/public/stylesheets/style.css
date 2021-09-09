@@ -166,3 +166,37 @@ footer{
   font-weight: bold;
   font-size: 250%;
 }
+
+.menubody{
+  background-color: grey;
+  position: fixed;
+  width: 30%;
+  height: 50vh;
+  display: none;
+}
+
+.menubody ul{
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.menubody ul li{
+  text-decoration: none;
+  color: white;
+}
+
+.menu:hover>.menubody{
+  display: block;
+}
+
+#perros{
+  background-color: hotpink;
+}
+
+#prueb{
+  display: none;
+}
+
+#perros:hover>#prueb{
+  display: block;
+}
