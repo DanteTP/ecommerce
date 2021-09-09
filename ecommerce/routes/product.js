@@ -13,7 +13,9 @@ router.get('/cart', function(req, res, next) {
 })
 
 // Carga pantalla carga producto
-
+router.get('/new', function(req, res, next) {
+  res.render('addprod', { title: 'Express' });
+})
 // Carga productos luego de búsqueda
 
 // Carga productos por búsqueda en Menú

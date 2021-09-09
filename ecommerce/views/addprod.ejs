@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <% include ./partials/head.ejs %> 
+<body>
+    <% include ./partials/header.ejs %> 
+    <div class="regbody">
+        <div class="regform">
+            <div class="register">
+                <form action="">
+                    <div class="name">
+                    <label  for="nombre">Nombre Product</label>
+                    <label  for="">Precio</label>
+                    <input type="text" name="nombre" id="nombre">
+                    <input type="text" name="" id=""></div>
+                    <div class="address">
+                    <label  for="">Descuento</label>
+                    <label class="CP" for="">Stock</label>
+                    <input type="text" name="" id="">
+                    <input class="CP" type="text" name="" id="">
+                    <label class="local" style="width: 100%;" for="">Descripción</label>
+                    <textarea style="border: none; background-color: #f1f1f186;" name="" id="" cols="55" rows="10"></textarea>
+                    <div class="name">
+                    <label for="">Imágenes</label>
+                    <input type="file" name="" id="" >
+                    <p class="advert" style="color: red; display: none;">Las contraseñas no coinciden</p>
+                    <button class="regbutton" type="submit">Cargar</button>
+                </div>
+                </form>
+                <div class="validators" style="color: red; text-align: center; display: none;">
+                    <p>Ingrese una dirección de mail válida</p>
+                    <p>La contraseña debe tener una longitud de 8 caracteres y al menos 1 letra mayúscula</p>
+                    <p>Las contraseñas no coinciden</p>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+</body>
+<footer>
+    PIe de pagina
+  </footer>
+</html>
