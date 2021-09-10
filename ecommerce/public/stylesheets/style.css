@@ -79,6 +79,7 @@ header{
   margin: 2%;
   text-align: center;
 }
+
 .cartuser div a{
   line-height: 5vh;
   color: grey;  
@@ -199,4 +200,86 @@ footer{
 
 #perros:hover>#prueb{
   display: block;
+}
+
+i.material-icons{
+  font-size: 350%;
+
+}
+
+@media (max-width:800px) {  
+  .cartuser div{
+    height: 3vh;
+  }
+
+  .cartuser div a {
+    line-height: 3vh;
+  }
+
+
+i.material-icons{
+    font-size: 250%; 
+  }
+  .logo img{
+    width: 80%;
+  }
+
+  .searchbutton{
+    width: 20%;
+    height: 2.5vh;
+  }
+
+  .searchcontent{
+    height: 2vh;
+  }
+}
+
+
+  @media (max-width:599px){  
+  
+    .cartuser div {
+        width: 20%;
+        height: 3vh;
+        margin: 2.5%;
+        text-align: center;}
+    .cartuser div a{
+        line-height: 2.5vh;}
+        
+    i.material-icons{
+        font-size: 250%; 
+      }
+      .searchbutton{
+        background-color: #f1f1f186;
+        color: rgb(88, 88, 88);
+        border: 1px solid tomato;
+        border-radius: 25px;  
+        width: 15%;
+        margin-left: 1%;
+        height: 2.5vh;
+        font-size: large;
+        font-size: 80%;
+      }
+      
+      .searchcontent{
+        width: 60%;
+        background-color: #f1f1f186;
+        color: rgb(88, 88, 88);
+        border: 1px solid tomato;
+        border-radius: 25px;
+        height: 2.5vh;
+        font-size: 80%;
+      }
+      .logo img{
+      width: 80%;
+    }}
+    
+
+
+@media (min-width: 900px) {
+
+i.material-icons{
+  font-size: 340%;
+}
+
+
 }
