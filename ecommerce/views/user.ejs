@@ -1,76 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <% include ./partials/head.ejs %> 
-
+    <% include ./partials/head.ejs %>
 <body>
     <% include ./partials/header.ejs %> 
     <div class="userbody">
         <div class="usermenu">
+            <input type="hidden" id="screenstatus" value="<%= screen %>">
             <div class="userimg"><img src="/images/user.png" alt=""></div>
-            <div class="username">Dante Tachella Parente</div>
+            <div id='datahome' class="username">Dante Tachella</div>
             <div class="useroptions">
                 <ul>
                     <li class="menubutton">Datos personales</li>
-                    <div id="personales"><li  class="submenu">Editar datos</li>
-                    <li id="personales" class="submenu">Cambiar contraseña</li></div>
-                    <li class="menubutton">Mis pedidos</li>
-                    <div id="personales"><li id="pedidos" class="submenu">Pedidos pendientes</li>
-                    <li id="pedidos" class="submenu">Historial de pedidos</li></div>
+                    <div id="personales" class="hidden">
+                    <li id="botones" class="submenu">Editar datos</li>
+                    <li id="botones" class="submenu">Mis direcciones</li>
+                    <li id="botones" class="submenu">Cambiar contraseña</li></div>
+                    <li  class="menubutton">Mis pedidos</li>
+                    <div id="personales" class="hidden">
+                    <li id="botones" class="submenu">Pedidos pendientes</li></div>
                 </ul>
             </div>
         </div>
-        <div class="userinfo">
-            <!-- <div id="home" class="home">
-                <h1 style="text-align: center;">Bienvenido!</h1>
-            </div> -->
-            <!-- <div id="edit" class="register" style="margin-top: 2%;">
-                <h1 style="text-align: center;">Edición de datos personales</h1>
-                <form action="">
-                    <form action="/users/user">
-                        <div class="name">
-                        <label  for="nombre">Nombre</label>
-                        <label  for="">Apellido</label>
-                        <input type="text" name="nombre" id="nombre">
-                        <input type="text" name="" id=""></div>
-                        <div class="contact">
-                        <label for="">Dirección de mail</label>
-                        <input type="email" name="" id=""></div>
-                        <div class="address">
-                        <label  for="">Dirección</label>
-                        <label class="CP" for="">CP</label>
-                        <input type="text" name="" id="">
-                        <input class="CP" type="text" name="" id="">
-                        <label class="local" for="">Localidad</label>
-                        <label class="local" for="">Provincia</label>
-                        <input class="local" type="text" name="" id="">
-                        <input class="local" type="text" name="" id=""></div>
-                        <div class="name">
-                        <label for="">Contraseña</label>
-                        <label for="">Repetir contraseña</label>
-                        <input type="password" name="" id="">
-                        <input type="password" name="" id="">
-                        <p class="advert" style="color: red; display: none;">Las contraseñas no coinciden</p>
-                        <button type="submit">Editar</button>
-                </form>
-            </div> -->
-            <div id="password">
-                <div id="edit" class="register" style="margin-top: 2%;">
-                    <h1 style="text-align: center;">Cambiar contraseña</h1>
-                    <form action="/users/user">
-                        <div class="name">
-                        <label for="">Contraseña actual</label>
-                        <input type="password" name="" id="">
-                        <label style="margin-top: 3%;" for="">Contraseña nueva</label>
-                        <label style="margin-top: 3%; for="">Repetir contraseña</label>
-                        <input type="password" name="" id="">
-                        <input type="password" name="" id=""></div>
-                        <button class="regbutton" type="submit" style="margin-top: 0%;">Cambiar</button>
-                        <p class="advert" style="color: red; display: none;">Las contraseñas no coinciden</p>
-                </form></div>
-            </div>
-            <div id="history"></div>
-            <div id="pending"></div>
+        <div id='datashow' class="userinfo">
+        <div id='datauser'class="visible"><% include ./partials/user/home.ejs %></div>
+        <div id='data' class="hidden" ><% include ./partials/user/edit.ejs %></div>
+        <div id='data'class="hidden">  
+            <% if (user.direccionesusuario.length>0) { %>
+              <% include ./partials/user/card.ejs %>
+            <% } else { %>
+              <% include ./partials/user/add_address.ejs %>
+                <% } %> </div>
+        <div id='data' class="hidden" ><% include ./partials/user/pass.ejs %> </div>
+        <div id='data' class="hidden" >Pedidos </div>
+       
+           
+            <!-- <div id='data' class="addressdat visible" ></div> -->
         </div>
     </div>
 </body>
+<script src="/javascript/user.js"></script>
 </html>

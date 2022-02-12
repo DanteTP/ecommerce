@@ -89,3 +89,132 @@
     color: grey;
     margin-top: 5%;
 }
+
+@media (max-width: 599px)
+{
+    .loginform{
+    width: 60%;
+        }
+
+
+    .login{
+        width: 50%;
+        margin-top: 7%;
+    }
+    
+    
+    .login form label{
+        margin-top: 6%;
+        font-size: 80%;
+        /* font-weight: 900; */
+        color: teal;
+        margin-left: 5%;
+        width: 80%;
+    }
+    
+    .login form input{
+        font-size: 70%;
+        color: grey;
+        background-color: white;
+        width: 90%;
+        border-radius: 25px;
+        margin-left: 5%;
+    }
+    
+    .login form .checkbox{
+        width: 8%;
+        margin-top: 6%;
+        margin-left: 5%;
+    }
+    
+    .login form .checklabel{
+        font-size: 60%;
+    }
+    
+    .login form p{
+        width: 100%;
+        font-size: 70%;
+        text-align: left;
+    }
+
+    .login form a{
+        text-decoration: none;
+        color: black;
+        margin-top: 10%;
+        margin-left: 3%;
+        text-align: center;
+        width: 100%;
+        font-size: 80%;
+    }
+
+    .login form button{
+        width: 90%;
+        font-size: 80%;
+        font-weight: 350;
+        margin-left: 5%;
+    }
+
+}
+@media (min-width: 600px) and (max-width:799px)
+{
+    .loginform{
+    width: 40%;
+        }
+
+
+    .login{
+        width: 50%;
+        margin-top: 7%;
+    }
+    
+    
+    .login form label{
+        font-size: 100%;
+    }
+    
+    .login form input{
+        font-size: 90%;
+    }
+    
+    .login form .checkbox{
+        width: 6%;
+        margin-top: 3%;
+        margin-left: 2%;
+    }
+    
+    .login form .checklabel{
+        font-size: 65%;
+        width: 80%;
+        margin-top: 3%;
+    }
+    
+    .login form p{
+        width: 100%;
+        font-size: 70%;
+        text-align: center;
+    }
+
+    .login form a{
+        text-decoration: none;
+        color: black;
+        margin-top: 10%;
+        margin-left: 3%;
+        text-align: center;
+        width: 140%;
+        font-size: 80%;
+    }
+
+    .login form button{ 
+       font-size: 100%;
+    }
+
+}
+
+@media (min-width: 800px) 
+{
+    .login form button{ 
+        font-size: 150%;
+     }
+
+
+}

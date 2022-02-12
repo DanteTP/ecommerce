@@ -8,7 +8,7 @@
 .regform{
     width: 30%;
     background-color: rgba(212, 206, 206, 0.959);
-    height: 50vh;
+    /* height: 50vh; */
     margin-top: 3%;
     border-radius: 25px;
     display: flex;
@@ -39,12 +39,12 @@
     color: teal;
     font-size: medium;
     font-weight: 600;
-    width: 50%;
+    width: 100%;
     text-align: center;
 }
 
 .name input{
-    width: 45%;
+    width: 100%;
 }
 
 .register form input{
@@ -73,11 +73,11 @@
 }
 
 .contact input{
-    width: 95%;
+    width: 100%;
 }
 
 .address{
-    width: 90%;
+    width: 95%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -114,4 +114,36 @@
     width: 60%;
     font-size: 170%;
     font-weight: 600;
+}
+
+.alert{
+    color: #ff0000;
+    margin-top: 2%;
+    font-size: 85%;
+    text-align: center;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-self: center;
+}
+
+.alertlist{
+    width: 80%;
+}
+
+@media (max-width: 799px)
+{
+.regform{
+    width: 60%;
+}
+
+.regform label{
+    font-size: 75%;
+}
+
+.regbutton{
+    font-size: 100%;
+}
+
 }

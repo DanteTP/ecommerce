@@ -8,13 +8,21 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@material-ui/icons": "^4.11.2",
+    "bcrypt": "^5.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-validator": "^6.14.0",
     "http-errors": "~1.6.3",
     "materialize-css": "^1.0.0-rc.2",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.12"
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.12",
+    "sequelize": "^7.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.3.0"
   }
 }

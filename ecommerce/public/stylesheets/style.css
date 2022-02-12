@@ -110,7 +110,7 @@ footer{
 
 .card {
   text-decoration: none;
-  height: 45vh;
+  /* height: 45vh; */
   width: 20%;
   background-color:rgb(233 232 232 / 96%);
   display: flex;
@@ -207,6 +207,7 @@ i.material-icons{
 
 }
 
+
 @media (max-width:800px) {  
   .cartuser div{
     height: 3vh;
@@ -221,6 +222,7 @@ i.material-icons{
     font-size: 250%; 
   }
   .logo img{
+
     width: 80%;
   }
 
@@ -235,51 +237,75 @@ i.material-icons{
 }
 
 
-  @media (max-width:599px){  
-  
-    .cartuser div {
-        width: 20%;
-        height: 3vh;
-        margin: 2.5%;
-        text-align: center;}
-    .cartuser div a{
-        line-height: 2.5vh;}
-        
-    i.material-icons{
-        font-size: 250%; 
-      }
-      .searchbutton{
-        background-color: #f1f1f186;
-        color: rgb(88, 88, 88);
-        border: 1px solid tomato;
-        border-radius: 25px;  
-        width: 15%;
-        margin-left: 1%;
-        height: 2.5vh;
-        font-size: large;
-        font-size: 80%;
-      }
-      
-      .searchcontent{
-        width: 60%;
-        background-color: #f1f1f186;
-        color: rgb(88, 88, 88);
-        border: 1px solid tomato;
-        border-radius: 25px;
-        height: 2.5vh;
-        font-size: 80%;
-      }
-      .logo img{
-      width: 80%;
-    }}
+  @media (max-width:599px) {  
+   .logo{
+     width: 30%;
+   }
+
+   .searchbar{
+     width: 70%;
+   }
+
+   .cartuser{
+     display: none;
+   }
+
+   .searchbutton{
+    font-size: 60%;
+  }
+   .searchcontent{
+     font-size: 40%;
+   }
+
+   .menubody{
+     width: 100%;
+     text-align: center;
+   }
+
+   .menu{
+     width: 100%;
+     text-align: center;
+   }
+   .card{
+     width: 90%;
+     margin-top: 10%;
+     margin-left: 5%;
+   }
+   .cards{
+     display: flex;
+     justify-content: space-around;
+     align-content: center;
+     flex-direction: column;
+    }
     
+   .cardimg img{
+    width: 35%;
+  }
 
+  .cardname{
+    font-size: 130%;
+  }
+  .cardprice{
+    font-size: 150%;
+  }
 
-@media (min-width: 900px) {
+  .indextitle{
+    font-size: 170%;
+    text-align: center;
+    padding: 5%;
+    margin-bottom: -10%;
+  }
+  }
+    
+@media (min-width:600px) and (max-width:799px){
+  .cardname{
+    font-size: 80%;
+  }
+  .cardprice{
+    font-size: 90%;
+  }
 
-i.material-icons{
-  font-size: 340%;
-}
-
-
+  .cardimg img{
+    width: 40%;
+  }
 }

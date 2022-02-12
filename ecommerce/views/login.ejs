@@ -2,29 +2,38 @@
 <html lang="en">
     <% include ./partials/head.ejs %> 
 <body>
-    <% include ./partials/header.ejs %> 
+    <% include ./partials/header.ejs %>
     <div class="loginbody">
         <div class="loginform">
             <div class="login">
-                <form action="/users/user">
+                <form action="/users/login/user" method="POST" id="loginform">
                 <label for="">Username</label>
-                <input type="email" name="" id="">
+                <input type="email" name="Email" id="EmailL" value="<% if (data) { %><%=data %><% } %>">
                 <label for="">Password</label>
-                <input type="password" name="" id="">
+                <input type="password" name="Password" id="PasswordL">
                 <input class="checkbox" type="checkbox" name="" id="">
                 <label class="checklabel" for="">Recordar usuario?</label>
+                <div id="alert"></div>
                 <p>No tenes usuario? <a style="color: royalblue;" href="/users/register">Registrate</a></p>
                 <p style="margin-top: -2%; margin-bottom: 0%;">Olvidaste tu contraseña? <a style="color: royalblue;" href="">Recuperar</a></p>
-                <button type="submit">Ingresar</button>
+                <button type="submit" id="loginsubmit">Ingresar</button>
                 <a class="social" href="">Ingresa con <i style="color: blue;" class="fab fa-facebook"></i></a>
                 <a class="social"  href="">Ingresa con <i style="color: red;" class="fab fa-google-plus-g"></i></a>
             </form>
+            <% if (errors) { %>
+                <div class="validators" style="color: red; text-align: center; ">
+                   <% for( let i = 0; i < errors.length; i++ ) { %>
+                       <p><%= errors[i].msg %> </p>
+                   <% } %>
+               <% } %>
             </div>  
         </div>
     </div>
 
 </body>
+<script src="/javascript/loginvalidator.js"></script>
 <footer>
     PIe de pagina
   </footer>
+
 </html>

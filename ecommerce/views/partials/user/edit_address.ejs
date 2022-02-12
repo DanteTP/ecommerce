@@ -1,0 +1,16 @@
+<div id="edit" class="register" style="margin-top: 2%;">
+    <h1 style="text-align: center;">Agregar nueva dirección de envío</h1>
+<form action="/users/user/address/edit" method="POST" id="addsubmit">
+    <div class="name">
+    <label for="Name">Dirección</label>
+    <input type="text" name="Adress" id="Address" value="">
+    <label for="Surname">City</label>
+    <input type="text" name="City" id="Address" value="">
+    <label for="Surname">Province</label>
+    <input type="text" name="Province" id="Address" value="">
+    <label for="Surname">Zip Code</label>
+    <input type="text" name="Zip_Code" id="Address" value="">
+    <input type="hidden" name="User_Id" value="<%= user.id %>">
+    </div>
+<button class="regbutton" type="submit">Cargar</button>
+</form></div>

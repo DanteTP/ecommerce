@@ -6,7 +6,7 @@
 
 .usermenu{
     background-color:rgb(233 232 232 / 96%);
-    width: 30%;
+    width: 25%;
     height: 120vh;
     display: flex;
     align-items: center;
@@ -14,7 +14,7 @@
 }
 
 .userinfo{
-    width: 70%;
+    width: 75%;
     background-color: rgba(212, 206, 206, 0.959);
     height: 120vh;
     display: flex;
@@ -72,20 +72,75 @@
     
 }
 
+.menubutton:hover>#personales{
+    display: block;}
+
+
+
 .submenu{
     background-color: rgb(226, 226, 226);
     height: 3vh;
     line-height: 3vh;
 }
 
-#personales{
+.hidden{
     display: none;
 }
 
-.home{
-    background-color: blanchedalmond;
-    width: 90%;
-    height: 50vh;
+.datos div {
+    font-size: 150%;
+    line-height: 5vh;
+    height: 5vh;
     margin-top: 5%;
+    background-color: rgb(233, 238, 243);
+    box-shadow: 5px 3px 10px -1px rgba(0,0,0,0.72);
+    border-radius: 10px;
+}
+.homeh{
+    display: none ;
+    width: 90%;
+}
+.homev{
+    display: block ;
+    width: 90%;
 }
 
+#passwordh{
+    display: none;    
+}
+
+#passwordv{
+    display:block    
+}
+
+.addressbody{
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.addressdat{
+    width: 100%;
+}
+
+.addcard{
+    /* height:30vh; */
+    border-radius: 21px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    margin-top: 2%;
+    background-color: rgb(169, 169, 172);
+    width: 30%
+}
+.addtitle{
+    width: 100%;
+}
+
+.addaction{
+    /* height: 5vh; */
+    display: block;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,22 @@
+<div id="edit" class="register" style="margin-top: 2%;">
+    <h1 style="text-align: center;">Edición de datos personales</h1>
+        <form action="/users/user/edit/password" method="POST">
+            <div class="name">
+                <input type="hidden" name="Id" id="" value="<%= user.id %>">
+                <label for="">Contraseña actual</label>
+                <input type="password" name="Password" id="Password">
+                <label for="">Nueva contraseña</label>
+                <input type="password" name="NPassword" id="NPassword">
+                <label for="">Repetir contraseña</label>
+                <input type="password" name="RNPassword" id="RNPassword">
+            </div>
+            <button id="passsubmit" class="regbutton" type="submit" >Modificar</button>
+            <div class='alert' id="passalert" style="color: red; text-align: center; display: flex; flex-direction: column; align-items: center;"></div>
+    </form>
+    <% if (passerrors) { %>
+        <div class="validators" style="color: red; text-align: center; ">
+           <% for( let i = 0; i < passerrors.length; i++ ) { %>
+               <p><%= passerrors[i].msg %> </p>
+           <% } %></div>
+    <% } %>
+</div>

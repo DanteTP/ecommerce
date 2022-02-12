@@ -1,0 +1,24 @@
+ <div id="edit" class="register" style="margin-top: 2%;">
+                <h1 style="text-align: center;">Edición de datos personales</h1>
+                <form action="/users/user/edit" method="POST">
+                        <div class="name">
+                            <input type="hidden" name="Id" id="Id" value="<%= user.id %>">
+                            <label for="Name">Nombre</label>
+                            <input type="text" name="Name" id="Name" value="<%= user.Name %>">
+                            <label for="Surname">Apellido</label>
+                            <input type="text" name="Surname" id="Surname" value="<%= user.Surname %>">
+                            </div>
+                            <div class="contact">
+                            <label for="">Dirección de mail</label>
+                            <input type="email" name="Email" id="Email" value="<%= user.Email %>">
+                            </div>
+                            <button id="editsubmit" class="regbutton" type="submit">Editar</button>
+                            <div class='alert' id="alert"></div>
+                        </form>
+                        <% if (usererrors) { %>
+                            <div class="validators" style="color: red; text-align: center; ">
+                               <% for( let i = 0; i < usererrors.length; i++ ) { %>
+                                   <p><%= usererrors[i].msg %> </p>
+                               <% } %></div>
+                        <% } %>
+            </div>

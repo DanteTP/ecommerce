@@ -6,43 +6,43 @@
     <div class="regbody">
         <div class="regform">
             <div class="register">
-                <form action="/users/user">
+                <form action="/users/register/add" method="POST" id="regsubmit">
                     <div class="name">
-                    <label  for="nombre">Nombre</label>
-                    <label  for="">Apellido</label>
-                    <input type="text" name="nombre" id="nombre">
-                    <input type="text" name="" id=""></div>
+                    <label for="Name">Nombre</label>
+                    <input type="text" name="Name" id="Name" value="<% if (data) { %><%=data.Name %><% } %>">
+                    <label for="Surname">Apellido</label>
+                    <input type="text" name="Surname" id="Surname" value="<% if (data) { %><%=data.Surname %><% } %>">
+                    </div>
                     <div class="contact">
                     <label for="">Dirección de mail</label>
-                    <input type="email" name="" id=""></div>
-                    <div class="address">
-                    <label  for="">Dirección</label>
-                    <label class="CP" for="">CP</label>
-                    <input type="text" name="" id="">
-                    <input class="CP" type="text" name="" id="">
-                    <label class="local" for="">Localidad</label>
-                    <label class="local" for="">Provincia</label>
-                    <input class="local" type="text" name="" id="">
-                    <input class="local" type="text" name="" id=""></div>
+                    <input type="email" name="Email" id="Email" value="<% if (data) { %><%=data.Email %><% } %>">
+                    </div>
                     <div class="name">
                     <label for="">Contraseña</label>
+                    <input type="password" name="Password" id="Password">
                     <label for="">Repetir contraseña</label>
-                    <input type="password" name="" id="">
-                    <input type="password" name="" id="">
-                    <p class="advert" style="color: red; display: none;">Las contraseñas no coinciden</p>
-                    <button class="regbutton" type="submit">Registrarse</button>
+                    <input type="password" name="RPassword" id="RPassword">
                 </div>
+                <button class="regbutton" type="submit" >Registrarse</button>
                 </form>
-                <div class="validators" style="color: red; text-align: center; display: none;">
-                    <p>Ingrese una dirección de mail válida</p>
+                <ul class='alert' id="alert"></ul>
+                <% if (errors) { %>
+                 <div class="validators" style="color: red; text-align: center;">
+                    <% for( let i = 0; i < errors.length; i++ ) { %>
+                        <p><%= errors[i].msg %> </p>
+                    <% } %>
+                <% } %>
+                
+                    <!-- <p>Ingrese una dirección de mail válida</p>
                     <p>La contraseña debe tener una longitud de 8 caracteres y al menos 1 letra mayúscula</p>
-                    <p>Las contraseñas no coinciden</p>
+                    <p>Las contraseñas no coinciden</p> -->
                 </div>
             </div>  
         </div>
     </div>
 
 </body>
+<script src="/javascript/regvalidator.js"></script>
 <footer>
     PIe de pagina
   </footer>
