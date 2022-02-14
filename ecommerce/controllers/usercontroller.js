@@ -12,6 +12,10 @@ module.exports = {
     registerView :  (req,res,next) =>{
         res.render('register', { title: 'Express',errors:'false',data:'false'})
     },
+    // addresseditView: async (req,res,next)=>{
+
+    //     res.render('user',{title:'express',user:user,screen:'passsuccess',usererrors:'false',passerrors:'false'})
+    // },
     // POST routes
     createuser : async (req,res,next) =>{
         let data = {

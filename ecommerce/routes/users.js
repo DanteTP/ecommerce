@@ -12,6 +12,10 @@ router.get('/usertest',function(req,res,next){res.render('user',{tittle:'prueba'
 // Carga pantalla register
 router.get('/register', userscontroller.registerView);
 
+// Carga pantalla para edición de cada dirección
+// router.get('/user/address/edit/:IdAddress', userscontroller.addresseditView);
+
+
 // Carga pantalla usuario via cookies
 // router.get('/user', function(req, res, next) {
 //   res.render('user', { title: 'Express' })

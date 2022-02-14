@@ -24,7 +24,7 @@
         <div id='datashow' class="userinfo">
         <div id='datauser'class="visible"><% include ./partials/user/home.ejs %></div>
         <div id='data' class="hidden" ><% include ./partials/user/edit.ejs %></div>
-        <div id='data'class="hidden">  
+        <div id='data'class="addressdat hidden">  
             <% if (user.direccionesusuario.length>0) { %>
               <% include ./partials/user/card.ejs %>
             <% } else { %>

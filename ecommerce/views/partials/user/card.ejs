@@ -1,21 +1,31 @@
 <h3 class="addtitle">Agregar nueva dirección  <a href="" style="color: #8cb46b; font-size: 150%;" id="addaddress"><i class="fa fa-plus"></i></a></h3>
 <div class="addressbody" id="addressbody">
-<% for( let i = 0; i < user.direccionesusuario.length; i++ ) { %>
-<div class="addcard">
-    <p><strong>Direccion</strong></p>
-    <div class="addcardname"><p><%=  user.direccionesusuario[i].Adress %></p></div>
-    <p><strong>Ciudad</strong></p>
-    <div class="addcardname"><p><%=  user.direccionesusuario[i].Zip_Code %> // <%=  user.direccionesusuario[i].City %> // <%=  user.direccionesusuario[i].Province %></p></div>
-<div style="display: flex;flex-wrap: wrap; width: 100%; justify-content: space-around;">
-<div class="addaction"><form action=""><input type="hidden" name="" value="a">
-    <button type="submit" style="color: #c6f59f; font-size: 150%;background-color: inherit;border: none;">
-        <i class="fa fa-pen"></i></button>
-</form></div>
-<div class="addaction"><form action=""><input type="hidden" name="" value="a"><button type="submit" style="color: red;font-size: 150%; background-color: inherit;border: none;">
-    <i class="fa fa-trash"></i>
-</button></form></div>
-</div></div>
-<% } %>
+    <% for( let i = 0; i < user.direccionesusuario.length; i++ ) { %>
+    <div class="addcard">
+        <input type="hidden" name="userID" value="<%= user.id%>">
+        <h4 class="h4carduser" ><strong>Direccion</strong></h4>
+        <p class="pcarduser"><%=  user.direccionesusuario[i].Adress %></p>
+        <h4 class="h4carduser"><strong>Ciudad</strong></h4>
+        <p class="pcarduser"><%=  user.direccionesusuario[i].City %> </p>
+        <h4 class="h4carduser"><strong>Provincia</strong></h4>
+        <p class="pcarduser"><%=  user.direccionesusuario[i].Province %></p>
+        <h4 class="h4carduser"><strong>Codigo Postal</strong></h4>
+        <p class="pcarduser"><%=  user.direccionesusuario[i].Zip_Code %></p>
+        <div style="display: flex;flex-wrap: wrap; width: 100%; justify-content: space-around;">
+        <div class="addaction">
+    <form action="/users/user/address/edit/"><input type="hidden" name="" value="a">
+        <button type="submit" style="color: #c6f59f; font-size: 150%;background-color: inherit;border: none;">
+        <i class="fa fa-pen"></i>
+    </button></form></div>
+    <div class="addaction">
+    <form action=""><input type="hidden" name="" value="a">
+        <button type="submit" style="color: red;font-size: 150%; background-color: inherit;border: none;">
+        <i class="fa fa-trash"></i>
+    </button></form></div>
+    </div></div>
+    <% } %>
+    
+
 
 
 </div>
