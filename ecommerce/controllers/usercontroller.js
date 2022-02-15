@@ -12,10 +12,6 @@ module.exports = {
     registerView :  (req,res,next) =>{
         res.render('register', { title: 'Express',errors:'false',data:'false'})
     },
-    // addresseditView: async (req,res,next)=>{
-
-    //     res.render('user',{title:'express',user:user,screen:'passsuccess',usererrors:'false',passerrors:'false'})
-    // },
     // POST routes
     createuser : async (req,res,next) =>{
         let data = {
@@ -45,7 +41,6 @@ module.exports = {
     }
     let userlog = await db.Users.findOne({where:{Email: req.body.Email}})
     let user = await db.Users.findByPk(userlog.id, {include:['direccionesusuario']})
-    // res.send(user.direccionesusuario)
     res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false'})
     },
     edituser: async (req,res,next) =>{
@@ -85,6 +80,22 @@ module.exports = {
             let address = await db.Adresses.create(data)
             let user = await db.Users.findByPk(req.body.User_Id, {include:['direccionesusuario']})
             res.render('user',{title:'express',user:user,screen:'addsuccess',usererrors:'false',passerrors:'false'})
-
     },
+    editaddress: async(req,res,next)=>{
+        let Aid = req.body.Address_Id
+        let update = await db.Adresses.update({
+            Adress:req.body.Adress,
+            City:req.body.City,
+            Province:req.body.Province,
+            Zip_Code:req.body.Zip_Code,
+            User_Id:req.body.User_Id
+        },{where:{id:Aid}})
+        let user = await db.Users.findByPk(req.body.User_Id, {include:['direccionesusuario']})
+        res.render('user',{title:'express',user:user,screen:'editaddresssucc',usererrors:'false',passerrors:'false'})
+    },
+    deleteaddress: async(req,res,next)=>{
+        await db.Adresses.destroy({where: {id: req.body.deleteaId}})
+        let user = await db.Users.findByPk(req.body.userid, {include:['direccionesusuario']})
+        res.render('user',{title:'express',user:user,screen:'editaddresssucc',usererrors:'false',passerrors:'false'})
+    }
 }

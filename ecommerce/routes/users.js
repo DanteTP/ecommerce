@@ -12,9 +12,6 @@ router.get('/usertest',function(req,res,next){res.render('user',{tittle:'prueba'
 // Carga pantalla register
 router.get('/register', userscontroller.registerView);
 
-// Carga pantalla para edición de cada dirección
-// router.get('/user/address/edit/:IdAddress', userscontroller.addresseditView);
-
 
 // Carga pantalla usuario via cookies
 // router.get('/user', function(req, res, next) {
@@ -38,7 +35,11 @@ router.post('/user/edit/password', uservalidator.passedit, userscontroller.editp
 router.post('/user/address/add', userscontroller.createaddress)
 
 // Modificación direcciones usuario
-// router.post('/user/address/edit', userscontroller.addressedit)
+router.post('/user/address/edit', userscontroller.editaddress)
+
+// Address delete
+router.post('/user/address/delete', userscontroller.deleteaddress)
+
 
 // Carga nueva imagen
 

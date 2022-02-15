@@ -7,6 +7,8 @@ window.onload = () =>{
     let botonh = document.getElementById('datahome')
     let homedata = document.getElementById('datauser')
     let status = document.getElementById('screenstatus')
+    let editbutton = document.querySelectorAll('#editbutton')
+    // let addaddress = document.getElementById('addaddress')
 
 // Screen msg
     switch(status.value){
@@ -39,6 +41,17 @@ window.onload = () =>{
         case 'addsuccess':
             alert('Dirección cargada correctamente')
             break
+        case 'editaddresssucc':
+        submenu[0].classList.remove('hidden')
+        homedata.classList.add('hidden')
+        editdata.classList.add('hidden')
+        for(let e=0;e<datahidden.length;e++){
+            if(e!==1){
+            datahidden[e].classList.add('hidden')}
+        }
+        datahidden[1].classList.remove('hidden') 
+        alert('Dirección modificada con éxito correctamente')
+        break    
     }
     
 
@@ -95,7 +108,6 @@ window.onload = () =>{
 
 
 
-
     // VALIDATION
     let editsubmit = document.getElementById('editsubmit')
     
@@ -149,4 +161,32 @@ window.onload = () =>{
                 msg.innerHTML += `<li class="alertlist">${errors[i]}</li>`
             }
         }})
+
+        // Edit address screen + values
+        for(let i=0;i<editbutton.length;i++){
+        editbutton[i].addEventListener('click', function(e){
+            let editaddressid = document.querySelectorAll('#EAIDvalue')
+            let EditAddress = document.querySelectorAll('#EAvalue')
+            let EditCity = document.querySelectorAll('#ECvalue')
+            let EditProvince = document.querySelectorAll('#EPvalue')
+            let EditZipcode = document.querySelectorAll('#EZCvalue')
+            let EditAddressUserID = document.querySelectorAll('#EUIDvalue')
+            e.preventDefault()
+
+            console.log(EditZipcode[i].textContent);
+            // Preloading values of edit_address form
+            document.getElementById('EditAddressID').value= editaddressid[i].value
+            document.getElementById('EditAddress').value= EditAddress[i].textContent
+            document.getElementById('EditCity').value= EditCity[i].textContent
+            document.getElementById('EditProvince').value= EditProvince[i].textContent
+            document.getElementById('EditZipcode').value= EditZipcode[i].textContent
+            document.getElementById('EditAddressUserID').value= EditAddressUserID[i].value
+            // Data screen hidden
+            for(let i=0; i<datahidden.length;i++){
+                datahidden[i].classList.add('hidden')
+            }
+            // Edit address screen visible
+            document.getElementById('editdata').classList.remove('hidden') 
+        })}
+
 }

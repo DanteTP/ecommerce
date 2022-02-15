@@ -1,32 +1,31 @@
-<h3 class="addtitle">Agregar nueva dirección  <a href="" style="color: #8cb46b; font-size: 150%;" id="addaddress"><i class="fa fa-plus"></i></a></h3>
+<div><h3 class="addtitle">Agregar nueva dirección  <a href="" style="color: #8cb46b; font-size: 150%;" id="addaddress"><i class="fa fa-plus"></i></a></h3>
 <div class="addressbody" id="addressbody">
     <% for( let i = 0; i < user.direccionesusuario.length; i++ ) { %>
     <div class="addcard">
-        <input type="hidden" name="userID" value="<%= user.id%>">
+        <input id="EAIDvalue" type="hidden" name="AddressId" value="<%= user.direccionesusuario[i].id%>">
+        <input id="EUIDvalue" type="hidden" name="UserID" value="<%= user.id%>">
         <h4 class="h4carduser" ><strong>Direccion</strong></h4>
-        <p class="pcarduser"><%=  user.direccionesusuario[i].Adress %></p>
+        <p id="EAvalue" class="pcarduser"><%=  user.direccionesusuario[i].Adress %></p>
         <h4 class="h4carduser"><strong>Ciudad</strong></h4>
-        <p class="pcarduser"><%=  user.direccionesusuario[i].City %> </p>
+        <p id="ECvalue"class="pcarduser"><%=  user.direccionesusuario[i].City %> </p>
         <h4 class="h4carduser"><strong>Provincia</strong></h4>
-        <p class="pcarduser"><%=  user.direccionesusuario[i].Province %></p>
+        <p id="EPvalue" class="pcarduser"><%=  user.direccionesusuario[i].Province %></p>
         <h4 class="h4carduser"><strong>Codigo Postal</strong></h4>
-        <p class="pcarduser"><%=  user.direccionesusuario[i].Zip_Code %></p>
+        <p id="EZCvalue" class="pcarduser"><%=  user.direccionesusuario[i].Zip_Code %></p>
         <div style="display: flex;flex-wrap: wrap; width: 100%; justify-content: space-around;">
         <div class="addaction">
-    <form action="/users/user/address/edit/"><input type="hidden" name="" value="a">
-        <button type="submit" style="color: #c6f59f; font-size: 150%;background-color: inherit;border: none;">
+    <form action="" method="">
+        <input type="hidden" name="" value="a">
+        <button id="editbutton" type="submit" style="color: #c6f59f; font-size: 150%;background-color: inherit;border: none;">
         <i class="fa fa-pen"></i>
     </button></form></div>
     <div class="addaction">
-    <form action=""><input type="hidden" name="" value="a">
+    <form action="/users/user/address/delete" method="POST">
+        <input type="hidden" name="userid" value="<%= user.id%>">
+        <input type="hidden" name="deleteaId" value="<%= user.direccionesusuario[i].id%>">
         <button type="submit" style="color: red;font-size: 150%; background-color: inherit;border: none;">
         <i class="fa fa-trash"></i>
     </button></form></div>
-    </div></div>
-    <% } %>
-    
-
-
-
-</div>
+    </div></div><% } %>
+</div></div>
 
