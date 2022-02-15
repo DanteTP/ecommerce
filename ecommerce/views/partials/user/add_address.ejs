@@ -3,14 +3,24 @@
 <form action="/users/user/address/add" method="POST" id="addsubmit">
     <div class="name">
     <label for="Name">Dirección</label>
-    <input type="text" name="Adress" id="Address" value="">
-    <label for="Surname">City</label>
-    <input type="text" name="City" id="Address" value="">
+    <input type="text" name="Adress" id="Address" value="<% if (data) { %><%=data.Adress %><% } %>">
     <label for="Surname">Province</label>
-    <input type="text" name="Province" id="Address" value="">
+    <select name="Province" id="Provselect">
+        <option value="">Por favor selecciona una provincia</option>
+    </select>
+    <label for="Surname">City</label>
+    <select name="City" id="Cityselect"></select>
     <label for="Surname">Zip Code</label>
-    <input type="text" name="Zip_Code" id="Address" value="">
+    <input id="Zip_Code" type="text" name="Zip_Code" id="Address" value="<% if (data) { %><%=data.Zip_Code %><% } %>">
     <input type="hidden" name="User_Id" value="<%= user.id %>">
     </div>
-<button class="regbutton" type="submit">Cargar</button>
-</form></div>
+    <button id="newaddress" class="regbutton" type="submit">Cargar</button>
+    </form>
+    <% if (addresserror) { %>
+        <div class="validators" style="color: red; text-align: center; ">
+           <% for( let i = 0; i < addresserror.length; i++ ) { %>
+               <p><%= addresserror[i].msg %> </p>
+           <% } %></div>
+        <% } %>
+    <div class='alert' id="addalert" style="color: red; text-align: center; display: flex; flex-direction: column; align-items: center;"></div>
+</div>

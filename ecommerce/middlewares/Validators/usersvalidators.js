@@ -82,6 +82,13 @@ module.exports = {
             })
     ],
     address:[
-        
+        check('Adress')
+            .isLength({min:2}).withMessage('Por favor Introduce tu dirección'),
+        check('Province')
+            .isLength({min:2}).withMessage('Por favor selecciona una provincia'),
+        check('City')
+            .isLength({min:2}).withMessage('Por favor selecciona una ciudad'),
+        check('Zip_Code')
+            .isInt().withMessage('Por favor introduce un código postal válido')
     ]
 }

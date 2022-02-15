@@ -1,4 +1,5 @@
-<div><h3 class="addtitle">Agregar nueva dirección  <a href="" style="color: #8cb46b; font-size: 150%;" id="addaddress"><i class="fa fa-plus"></i></a></h3>
+<div id="addadresscard" class="hidden"><% include ./add_address.ejs %></div>
+<div id="cardinfo"><h3 class="addtitle">Agregar nueva dirección  <a href="" style="color: #8cb46b; font-size: 150%;" id="addaddress"><i class="fa fa-plus"></i></a></h3>
 <div class="addressbody" id="addressbody">
     <% for( let i = 0; i < user.direccionesusuario.length; i++ ) { %>
     <div class="addcard">

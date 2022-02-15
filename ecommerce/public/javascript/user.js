@@ -8,9 +8,32 @@ window.onload = () =>{
     let homedata = document.getElementById('datauser')
     let status = document.getElementById('screenstatus')
     let editbutton = document.querySelectorAll('#editbutton')
-    // let addaddress = document.getElementById('addaddress')
+    let addaddress = document.getElementById('addaddress')
+    let provselect = document.getElementById('Provselect')
+    let Cityselect = document.getElementById('Cityselect')
 
+
+    // API PROVINCES ADD ADDRESS
+    fetch('https://apis.datos.gob.ar/georef/api/provincias')
+    .then(response => response.json())
+    .then(data => {
+        for(let i=0 ; i<data.provincias.length ; i++){
+           provselect.innerHTML+=`<option value="${data.provincias[i].nombre}">${data.provincias[i].nombre}</option>`
+        }
+        Cityselect.innerHTML='<option value="">Por favor selecciona una ciudad</option>'
+        })
+    provselect.addEventListener('change',function(){
+        fetch('https://apis.datos.gob.ar/georef/api/localidades?provincia='+provselect.value+'&max=5000')
+        .then(response => response.json())
+        .then(data => {
+            for (let i = 0; i < data.localidades.length; i++) {
+                Cityselect.innerHTML+=`<option value="${data.localidades[i].nombre}">${data.localidades[i].nombre}</option>`
+                        }
+        })
+    })
+ 
 // Screen msg
+
     switch(status.value){
         case 'home':
         break
@@ -38,8 +61,27 @@ window.onload = () =>{
         }
         datahidden[2].classList.remove('hidden') 
         break
+        case 'adderror':
+        submenu[0].classList.remove('hidden')
+        homedata.classList.add('hidden')
+        editdata.classList.add('hidden')
+        for(let e=0;e<datahidden.length;e++){
+            if(e!==1){
+            datahidden[e].classList.add('hidden')}
+        }
+        datahidden[1].classList.remove('hidden') 
+        document.getElementById('cardinfo').classList.add('hidden')
+        document.getElementById('addadresscard').classList.remove('hidden')
+            break    
         case 'addsuccess':
-            alert('Dirección cargada correctamente')
+            submenu[0].classList.remove('hidden')
+            homedata.classList.add('hidden')
+            editdata.classList.add('hidden')
+            for(let e=0;e<datahidden.length;e++){
+                if(e!==1){
+                datahidden[e].classList.add('hidden')}
+            }
+            datahidden[1].classList.remove('hidden') 
             break
         case 'editaddresssucc':
         submenu[0].classList.remove('hidden')
@@ -50,10 +92,8 @@ window.onload = () =>{
             datahidden[e].classList.add('hidden')}
         }
         datahidden[1].classList.remove('hidden') 
-        alert('Dirección modificada con éxito correctamente')
         break    
     }
-    
 
 // Menu
     for(let i = 0;i<boton.length;i++){
@@ -106,6 +146,17 @@ window.onload = () =>{
         homedata.classList.remove('hidden')
     })
 
+    addaddress.addEventListener('click',function(e){
+        e.preventDefault()
+        document.getElementById('Address').value=''
+        document.getElementById('Zip_Code').value=''
+        document.getElementById('cardinfo').classList.add('hidden')
+        document.getElementById('addadresscard').classList.remove('hidden')
+    })
+    botones[1].addEventListener('click',function (event) {
+        document.getElementById('cardinfo').classList.remove('hidden')
+        document.getElementById('addadresscard').classList.add('hidden')
+    })
 
 
     // VALIDATION
@@ -161,6 +212,29 @@ window.onload = () =>{
                 msg.innerHTML += `<li class="alertlist">${errors[i]}</li>`
             }
         }})
+        // New address validation
+        let newaddress = document.getElementById('newaddress')
+        newaddress.addEventListener("click",function (event){
+        let errors = []      
+        let msg = document.getElementById('addalert')    
+        let Address =  document.getElementById('Address')
+        let Zip_Code= document.getElementById('Zip_Code')
+        let zippattern = /[1-9]/g
+        if(Address.value.length<2){
+            errors.push('Por favor introduce una dirección válida')
+        }
+        if(!zippattern.test(Zip_Code.value)){
+            errors.push('Introduce un codigo postal válido')
+        }
+        if(errors.length>0){
+            msg.innerHTML=''
+            event.preventDefault()
+            console.log(msg);
+            for(let i=0 ; i<errors.length ; i++){
+                msg.innerHTML += `<li class="alertlist">${errors[i]}</li>`
+            }
+        }})
+
 
         // Edit address screen + values
         for(let i=0;i<editbutton.length;i++){
@@ -172,8 +246,6 @@ window.onload = () =>{
             let EditZipcode = document.querySelectorAll('#EZCvalue')
             let EditAddressUserID = document.querySelectorAll('#EUIDvalue')
             e.preventDefault()
-
-            console.log(EditZipcode[i].textContent);
             // Preloading values of edit_address form
             document.getElementById('EditAddressID').value= editaddressid[i].value
             document.getElementById('EditAddress').value= EditAddress[i].textContent

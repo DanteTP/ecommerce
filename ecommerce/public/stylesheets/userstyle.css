@@ -151,3 +151,13 @@
 .h4carduser{
     margin: 7% 0% 0% 0%;
 }
+
+ select{
+    width: 100%;
+    background-color: #f1f1f186;
+    border: none;
+    font-size: 100%;
+    color: rgb(99, 96, 96);
+    margin-bottom: 2%;
+    border-radius: 5px;
+}

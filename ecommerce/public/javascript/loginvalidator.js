@@ -1,5 +1,13 @@
 window.onload = ()=>{
-        window.open('/views/modals/add_address.ejs',)
+
+    fetch('https://apis.datos.gob.ar/georef/api/municipios?provincia?nombre=Jujuy')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        })
+
+
+
         let loginsubmit = document.getElementById('loginsubmit')
 
         // Login validation

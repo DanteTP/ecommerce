@@ -26,9 +26,9 @@
         <div id='data' class="hidden" ><% include ./partials/user/edit.ejs %></div>
         <div id='data'class="addressdat hidden">  
             <% if (user.direccionesusuario.length>0) { %>
-              <% include ./partials/user/card.ejs %>
+              <% include partials/user/card.ejs %>
             <% } else { %>
-              <% include ./partials/user/add_address.ejs %>
+              <% include partials/user/add_address.ejs %>
                 <% } %> </div>
         <div id='data' class="hidden" ><% include ./partials/user/pass.ejs %> </div>
         <div id='data' class="hidden" >Pedidos </div>

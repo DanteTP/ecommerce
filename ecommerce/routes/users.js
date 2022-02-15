@@ -32,7 +32,7 @@ router.post('/user/edit', uservalidator.useredit, userscontroller.edituser)
 router.post('/user/edit/password', uservalidator.passedit, userscontroller.editpass)
 
 // Carga nueva dirección usuario
-router.post('/user/address/add', userscontroller.createaddress)
+router.post('/user/address/add', uservalidator.address , userscontroller.createaddress)
 
 // Modificación direcciones usuario
 router.post('/user/address/edit', userscontroller.editaddress)
