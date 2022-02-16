@@ -90,5 +90,13 @@ module.exports = {
             .isLength({min:2}).withMessage('Por favor selecciona una ciudad'),
         check('Zip_Code')
             .isInt().withMessage('Por favor introduce un código postal válido')
+    ],
+    image:[
+        check('userimg').custom((value, { req }) => {
+            if (req.fileValidationError) {
+              throw new Error('La imagen debe ser de tipo JPG, JPEG, PNG, GIF');
+            }
+            return true;
+        })
     ]
 }

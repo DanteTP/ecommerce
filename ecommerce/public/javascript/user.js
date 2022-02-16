@@ -1,3 +1,4 @@
+
 window.onload = () =>{
     let validators =  document.querySelectorAll('.validators')
     let boton = document.querySelectorAll('.menubutton')
@@ -11,6 +12,28 @@ window.onload = () =>{
     let addaddress = document.getElementById('addaddress')
     let provselect = document.getElementById('Provselect')
     let Cityselect = document.getElementById('Cityselect')
+    let imgbutton = document.getElementById('imgbutton')
+    let imgform = document.getElementById('imgform')
+    let imgbuttoncontainer = document.getElementById('imgbuttoncontainer')
+    let userimginput = document.getElementById('userimginput')
+    let userimg = document.getElementById('userimg')
+
+    console.log(userimginput.files);
+
+    imgbutton.addEventListener('click',function(e){
+        e.preventDefault()
+        imgbutton.classList.add('hidden')
+        imgform.classList.remove('hidden')
+        console.log(userimginput);
+    })
+
+    userimginput.addEventListener('change',function(){
+        let imagen = userimginput.files
+        console.log(imagen[0]);
+        const objectURL = URL.createObjectURL(imagen[0]);
+        userimg.src=objectURL
+    })
+
 
 
     // API PROVINCES ADD ADDRESS

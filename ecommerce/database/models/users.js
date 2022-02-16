@@ -43,8 +43,11 @@ Users.hasMany(models.Orders,{
 Users.hasMany(models.Reviews,{
   as:"reviewsporusuario",
   foreignKey:"User_Id"
+}),
+Users.hasOne(models.Userimages,{
+  as:"imagenusuario",
+  foreignKey:"User_Id"
 })
-
 }
 
 return Users

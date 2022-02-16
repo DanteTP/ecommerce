@@ -6,7 +6,21 @@
     <div class="userbody">
         <div class="usermenu">
             <input type="hidden" id="screenstatus" value="<%= screen %>">
-            <div class="userimg"><img src="/images/user.png" alt=""></div>
+            <div class="userimg">
+                <div style="display: flex; justify-content: center;"><img id="userimg" <% if (user.imagenusuario) { %>
+                    src="/images/<%= user.imagenusuario.Name  %> "
+                <% } %> src="/images/user.png" alt=""></div>
+                <div id="imgbuttoncontainer" style="display: flex; justify-content: center; margin-top: 3%;" class="">
+                    <a id="imgbutton" style="color: #8cb46b; font-size: 150%;" href=""><i class="fa fa-plus"></i></a></div>
+               <div  id="imgform" class="hidden"> <form action="/users/user/image" method="post" enctype="multipart/form-data" >
+                <input type="hidden" name="User_Id" value="<%= user.id %>">
+                <input  type="file" name="userimg" id="userimginput">
+                <button class="imgbutton" type="submit">Cambiar foto</button></form></div></div>
+                <% if (imageerror) { %>
+                    <div class="validators" style="color: red; text-align: center; ">
+                           <p><%= imageerror[0].msg %> </p>
+                       </div>
+                    <% } %>
             <div id='datahome' class="username">Dante Tachella</div>
             <div class="useroptions">
                 <ul>
@@ -33,6 +47,7 @@
         <div id='data' class="hidden" ><% include ./partials/user/pass.ejs %> </div>
         <div id='data' class="hidden" >Pedidos </div>
         <div id='editdata' class="hidden"><% include ./partials/user/edit_address.ejs %></div>
+        </div>
         </div>
     </div>
 </body>
