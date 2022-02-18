@@ -49,14 +49,9 @@ module.exports = {
             .isLength({min:2}).withMessage('Por favor completa tu nombre'),
         check('Surname')
             .isLength({min:2}).withMessage('Por favor completa tu apellido'),
-            check('Email')
+        check('Email')
             .isEmail().withMessage('Dirección de correo electrónico no es válida')
-            .custom(async (value)=>{
-                let mail = await db.Users.findOne({where:{Email: value}})
-                if(mail){
-                    throw new Error ('El correo electrónico ya existe')
-                }return true
-            })],
+    ],
     passedit:[
         check('Password')
         .custom(async (value,{req})=>{

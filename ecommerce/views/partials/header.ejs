@@ -9,7 +9,13 @@
       </form>
     </div>
     <div class="cartuser">
-      <div><a class="icon" href="/users/login"><i class="material-icons">person</i></a></div>
+      <div><a class="icon" href="/users/login">
+        <% if (user.imagenusuario) { %>
+       <img  style="height: 5vh; border-radius: 25px;" src="/images/<%= user.imagenusuario.Name  %> ">
+          <% } else { %>
+            <i class="material-icons">person</i>
+   <% } %>
+       </a></div>
       <div><a href=""><i class="material-icons">shopping_cart</i></a></div>
     </div>
     <div class="menu"><i class="fas fa-bars"></i>

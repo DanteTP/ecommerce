@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config()
+const session = require('express-session');
+var cookieParser = require('cookie-parser')
 
 
 var indexRouter = require('./routes/index');
@@ -22,6 +24,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cookieParser());
+
+
+app.use(
+  session({
+    secret: "mi frase secreta",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/product', productRouter);

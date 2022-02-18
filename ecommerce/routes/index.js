@@ -1,11 +1,14 @@
 var express = require('express');
+let auth = require('../middlewares/others/session/cookie')
 
 var router = express.Router();
 const db = require('../database/models')
 
 /* GET home page. */
-router.get('/', async function  (req, res, next) {
-  res.render('index',{title:"a"});
+router.get('/', auth, async function  (req, res, next) {
+  console.log(req.user);
+    res.render('index',{title:'express',user:req.user})
+  
   // console.log(useres);
   
 
