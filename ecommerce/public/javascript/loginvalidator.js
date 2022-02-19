@@ -1,15 +1,14 @@
 window.onload = ()=>{
-
-    fetch('https://apis.datos.gob.ar/georef/api/municipios?provincia?nombre=Jujuy')
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        })
-
-
-
         let loginsubmit = document.getElementById('loginsubmit')
+        let cookiecheck = document.getElementById('checkbox')
+        let cookielabel = document.getElementById('checklabel')
 
+        if(sessionStorage.getItem('cookie')=='rechazada'){
+            cookiecheck.classList.add('hidden')
+            cookielabel.classList.add('hidden')
+        }
+    
+        
         // Login validation
         loginsubmit.addEventListener("click",function (event){
         let msg = document.getElementById('alert')    

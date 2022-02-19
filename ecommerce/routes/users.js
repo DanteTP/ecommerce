@@ -14,6 +14,9 @@ router.get('/login', auth, userscontroller.loginView );
 
 router.get('/usertest',function(req,res,next){res.render('user',{title:'express',user:'false',errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})})
 
+router.get('/logout', userscontroller.logout );
+
+
 // Carga pantalla register
 router.get('/register', userscontroller.registerView);
 

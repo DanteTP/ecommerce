@@ -18,18 +18,14 @@ window.onload = () =>{
     let userimginput = document.getElementById('userimginput')
     let userimg = document.getElementById('userimg')
 
-    console.log(userimginput.files);
-
     imgbutton.addEventListener('click',function(e){
         e.preventDefault()
         imgbutton.classList.add('hidden')
         imgform.classList.remove('hidden')
-        console.log(userimginput);
     })
 
     userimginput.addEventListener('change',function(){
         let imagen = userimginput.files
-        console.log(imagen[0]);
         const objectURL = URL.createObjectURL(imagen[0]);
         userimg.src=objectURL
     })
@@ -37,23 +33,23 @@ window.onload = () =>{
 
 
     // API PROVINCES ADD ADDRESS
-    fetch('https://apis.datos.gob.ar/georef/api/provincias')
-    .then(response => response.json())
-    .then(data => {
-        for(let i=0 ; i<data.provincias.length ; i++){
-           provselect.innerHTML+=`<option value="${data.provincias[i].nombre}">${data.provincias[i].nombre}</option>`
-        }
-        Cityselect.innerHTML='<option value="">Por favor selecciona una ciudad</option>'
-        })
-    provselect.addEventListener('change',function(){
-        fetch('https://apis.datos.gob.ar/georef/api/localidades?provincia='+provselect.value+'&max=5000')
-        .then(response => response.json())
-        .then(data => {
-            for (let i = 0; i < data.localidades.length; i++) {
-                Cityselect.innerHTML+=`<option value="${data.localidades[i].nombre}">${data.localidades[i].nombre}</option>`
-                        }
-        })
-    })
+    // fetch('https://apis.datos.gob.ar/georef/api/provincias')
+    // .then(response => response.json())
+    // .then(data => {
+    //     for(let i=0 ; i<data.provincias.length ; i++){
+    //        provselect.innerHTML+=`<option value="${data.provincias[i].nombre}">${data.provincias[i].nombre}</option>`
+    //     }
+    //     Cityselect.innerHTML='<option value="">Por favor selecciona una ciudad</option>'
+    //     })
+    // provselect.addEventListener('change',function(){
+    //     fetch('https://apis.datos.gob.ar/georef/api/localidades?provincia='+provselect.value+'&max=5000')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         for (let i = 0; i < data.localidades.length; i++) {
+    //             Cityselect.innerHTML+=`<option value="${data.localidades[i].nombre}">${data.localidades[i].nombre}</option>`
+    //                     }
+    //     })
+    // })
  
 // Screen msg
 
@@ -229,9 +225,7 @@ window.onload = () =>{
         if(errors.length>0){
             msg.innerHTML=''
             event.preventDefault()
-            console.log(msg);
             for(let i=0 ; i<errors.length ; i++){
-                console.log(errors[i]);
                 msg.innerHTML += `<li class="alertlist">${errors[i]}</li>`
             }
         }})
@@ -252,7 +246,6 @@ window.onload = () =>{
         if(errors.length>0){
             msg.innerHTML=''
             event.preventDefault()
-            console.log(msg);
             for(let i=0 ; i<errors.length ; i++){
                 msg.innerHTML += `<li class="alertlist">${errors[i]}</li>`
             }

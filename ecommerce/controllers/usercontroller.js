@@ -144,5 +144,9 @@ module.exports = {
             res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
             }
         }
+    },
+    logout:(req,res,next) =>{
+        req.cookies.Usercookie? res.clearCookie('Usercookie'):req.session.destroy();
+        res.render('index',{title:'express',user:''})
     }
 }

@@ -80,7 +80,18 @@
 .menubutton:hover>#personales{
     display: block;}
 
-
+#logout{
+    background-color: rgb(226, 226, 226);
+    height: 3vh;
+    line-height: 3vh;
+    padding: 0;
+border: 0;
+margin: 0%;
+width: 100%;
+font-size: 140%;
+text-align: left;
+color: red;
+}
 
 .submenu{
     background-color: rgb(226, 226, 226);

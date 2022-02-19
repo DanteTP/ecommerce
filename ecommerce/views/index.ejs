@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
+  <div id="cookiewelcome" class="cookies-msg">
+    <div class="cookies-prompt">
+    <p >Para mejorar su experiencia como usario este sitio utiliza cookies</p>
+    <button class="cookiesbutton" value="Aceptar">Aceptar</button>
+    <button class="cookiesbutton" value="Rechazar">Rechazar</button></div>
+  </div>
   <% include ./partials/head.ejs %> 
   <body>
     <% include ./partials/header.ejs %> 
-    <!-- Creación componente para menú desplegable -->
     <div class="content">
-
-      
       <div class="indextitle">Ofertas</div>
       <div class="cards"><% for( let i = 0; i < 4; i++ ) { %>
         <% include ./partials/card.ejs %> 
@@ -19,6 +22,7 @@
     </div>
     
   </body>
+  <script src="/javascript/index.js"></script>
   <footer>
     PIe de pagina
   </footer>

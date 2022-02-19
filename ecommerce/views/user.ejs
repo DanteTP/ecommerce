@@ -24,30 +24,31 @@
             <div id='datahome' class="username">Dante Tachella</div>
             <div class="useroptions">
                 <ul>
-                    <li class="menubutton">Mis Datos</li>
+                    <li class="menubutton">Mis Datos <i class="fa fa-angle-down"></i></li>
                     <div id="personales" class="hidden">
                     <li id="botones" class="submenu">Editar datos</li>
                     <li id="botones" class="submenu">Mis direcciones</li>
-                    <li id="botones" class="submenu">Cambiar contraseña</li></div>
-                    <li  class="menubutton">Mis pedidos</li>
+                    <li id="botones" class="submenu">Cambiar contraseña</li>
+                    <form action="/users/logout" method="get"><button id="logout" type="submit">Cerrar sesion <i class="fa-house-person-leave"></i></button></form>
+                </div>
+                    <li  class="menubutton">Mis pedidos <i class="fa fa-angle-down"></i></li>
                     <div id="personales" class="hidden">
                     <li id="botones" class="submenu">Pedidos pendientes</li></div>
                 </ul>
             </div>
-            <form action=""><button type="submit">Logout</button></form>
         </div>
         <div id='datashow' class="userinfo">
-        <div id='datauser'class="visible"><% include ./partials/user/home.ejs %></div>
-        <div id='data' class="hidden" ><% include ./partials/user/edit.ejs %></div>
-            <div id='data'class="addressdat hidden">  
-                <% if (user.direccionesusuario.length>0) { %>
-                  <% include partials/user/card.ejs %>
-                <% } else { %>
-                  <% include partials/user/add_address.ejs %>
-                    <% } %> </div>
-        <div id='data' class="hidden" ><% include ./partials/user/pass.ejs %> </div>
-        <div id='data' class="hidden" >Pedidos </div>
-        <div id='editdata' class="hidden"><% include ./partials/user/edit_address.ejs %></div>
+            <div id='datauser'class="visible"><% include ./partials/user/home.ejs %></div>
+            <div id='data' class="hidden" ><% include ./partials/user/edit.ejs %></div>
+                <div id='data'class="addressdat hidden">  
+                    <% if (user.direccionesusuario.length>0) { %>
+                      <% include partials/user/card.ejs %>
+                    <% } else { %>
+                      <% include partials/user/add_address.ejs %>
+                        <% } %> </div>
+            <div id='data' class="hidden" ><% include ./partials/user/pass.ejs %> </div>
+            <div id='data' class="hidden" >Pedidos </div>
+            <div id='editdata' class="hidden"><% include ./partials/user/edit_address.ejs %></div>
         </div>
         </div>
 </body>
