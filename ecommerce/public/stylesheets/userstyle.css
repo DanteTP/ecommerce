@@ -1,13 +1,18 @@
+
 .userbody{
     display: flex;   
     width: 60%;
     margin-left: 20%;
+    min-height: 90vh;
+}
+
+#datauser{
+    width: 100%;
 }
 
 .usermenu{
     background-color:rgb(233 232 232 / 96%);
     width: 25%;
-    height: 120vh;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -16,7 +21,6 @@
 .userinfo{
     width: 75%;
     background-color: rgba(212, 206, 206, 0.959);
-    height: 120vh;
     display: flex;
     justify-content: center
 }
@@ -91,7 +95,7 @@
 .datos div {
     font-size: 150%;
     line-height: 5vh;
-    height: 5vh;
+    height: fit-content;
     margin-top: 5%;
     background-color: rgb(233, 238, 243);
     box-shadow: 5px 3px 10px -1px rgba(0,0,0,0.72);
@@ -172,3 +176,77 @@
     font-size: 80%;
     font-weight: 600;
 }
+
+
+@media (max-width:599px) { 
+
+    .userbody{
+        display: block;
+    }
+
+    .userinfo{
+        width: 100%;
+        height: fit-content;
+    }
+    .datos div{
+        height: fit-content;
+    }
+    .usermenu{
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 5%;
+    }
+    
+    .useroptions{
+        margin: 0;
+    }
+
+    .useroptions ul{
+        margin: 0;
+    }
+
+    .menubutton{
+        height: fit-content;
+        box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.75);
+    }
+
+    .addcard{
+        width: 100%;
+        margin-top: 2%;
+    }
+    .username{
+        margin-top: 0;
+        text-align: center;
+        font-size: 160%;
+    }
+    .useroptions ul li{
+        font-size: 100%;
+    }
+    .userimg img {
+        width: 50%;
+    }
+}
+
+    @media (min-width:600px) and (max-width:799px){
+
+        .datos div{
+            height: fit-content;
+            line-height: 3vh;
+        }
+    
+        .usermenu{
+            width: 30%;
+        }
+        .userinfo{
+            width: 70%;
+        }
+        .useroptions ul li{
+            font-size: 100%;
+            height: fit-content;
+        }
+        .addcard{
+            width: 45%;
+            margin-top: 2%;
+        }
+    }
+ 
