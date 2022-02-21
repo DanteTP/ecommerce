@@ -3,17 +3,17 @@ window.onload = ()=>{
     let cookiewelcome = document.getElementById('cookiewelcome')
     let cookie = document.cookie
 
-    if(sessionStorage.getItem('cookie') || cookie){
+    if(localStorage.getItem('cookie') || cookie){
         cookiewelcome.classList.add('hidden')
     }
 
     for(let i=0;i<cookiesbutton.length;i++){
         cookiesbutton[i].addEventListener('click',function(){
             if(cookiesbutton[i].value=='Aceptar'){
-                sessionStorage.setItem('cookie', 'aceptada')
+                localStorage.setItem('cookie', 'aceptada')
                 cookiewelcome.classList.add('hidden')
             }else{
-                sessionStorage.setItem('cookie', 'rechazada')
+                localStorage.setItem('cookie', 'rechazada')
                 cookiewelcome.classList.add('hidden')
             }
         })

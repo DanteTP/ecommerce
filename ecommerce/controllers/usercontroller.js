@@ -124,7 +124,7 @@ module.exports = {
                     }
                     console.log("File deleted successfully")})
             
-            }            
+         }            
             if (previmg){
                 let image = await db.Userimages.update({
                 Name:req.file.filename},{where:{id:previmg.dataValues.id}})

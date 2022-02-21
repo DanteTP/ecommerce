@@ -5,17 +5,21 @@
     <% include ./partials/header.ejs %> 
     <div class="detailbody">
         <div class="detailimg">
-            <div>img chicas</div>
-            <div>img grande</div>
+            <div class="fade" >
+                <div id="imgslickcontainer"><img id="imgslick" src="/images/Comedero-Dispenser-Alimentador-Programable.jpg" alt="" srcset=""></div>
+                <div id="imgslickcontainer"><img id="imgslick" src="/images/Comedero-Dispenser-Alimentador-Programable.jpg" alt="" srcset=""></div>
+                <div id="imgslickcontainer"><img id="imgslick" src="/images/Comedero-Dispenser-Alimentador-Programable.jpg" alt="" srcset=""></div>
+              </div>
         </div>
         <div class="detaildetail">
             <div class="detailtitle"><h1>Lorem ipsum dolor sit amet.</h1></div>
             <div class="detailprice">$4.000</div>
-            <div class="detailstock">stock disponible xx unidades</div>
+            <input type="hidden" id="stockvalue" name="" value="12">
+            <div class="detailstock">stock disponible: xx</div>
             <div class="detailcounter">
-                <div class="counterbut"><i class="fas fa-minus"></i></div>
-                <div class="countervalue">1</div>
-                <div class="counterbut"><i class="fas fa-plus"></i></div>
+                <div id="countsus" class="counterbut"><i class="fas fa-minus"></i></div>
+                <div id="countvalue" class="countervalue">1</div>
+                <div id="counteradd" class="counterbut"><i class="fas fa-plus"></i></div>
             </div>
             <div class="detailaddcart">
                 <form  action="">
@@ -35,13 +39,16 @@
         </div>
         <div class="comments">
             <div class="stars">
-                <% for( let index = 0; index < 5; index++ ) { %>
-                    <i class="fas fa-star"></i>                                    <% } %>
+                <% for( let index = 0; index < 3; index++ ) { %>
+                    <i id="starok" class="fas fa-star" style="color: rgb(190, 238, 190);"></i> <% } %>
+                <% for( let index = 0; index < 3; index++ ) { %>
+                        <i class="fas fa-star" style="color: rgb(168, 168, 168);"></i> <% } %>
             </div>
             <div class="comment">
                 <% for( let index = 0; index < 3; index++ ) { %>
                     <div class="commentcard">
-                <h2>  <% for( let index = 0; index < 5; index++ ) { %>
+                     <h2>  
+                    <% for( let index = 0; index < 5; index++ ) { %>
                     <i class="fas fa-star"></i>                                    <% } %></h2>
                 <div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam animi soluta adipisci odit quidem corrupti consequuntur, nemo amet facere suscipit, rerum fugiat? Quibusdam neque at iure necessitatibus rem. Cum dignissimos enim quas nostrum. Reiciendis ipsam numquam quod molestias commodi quas possimus quibusdam blanditiis perferendis magni temporibus, nisi fugiat, velit est provident voluptatum dolorum ut dolore soluta non. Ipsa, adipisci aut quam corrupti expedita doloremque cupiditate tempora totam illo, culpa facilis molestias eaque excepturi, pariatur nam unde incidunt error! Voluptatum quod mollitia perferendis aliquam explicabo odio, commodi numquam quisquam vitae sapiente vel beatae voluptatibus minima eius ut cupiditate, nam aperiam quas!</p>
@@ -50,5 +57,19 @@
             </div>
         </div>
     </div>
-</body>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://cdn.bootcss.com/slick-carousel/1.6.0/slick.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.fade').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear'
+        });
+      });
+    </script>
+    </body>
+<script src="/javascript/productdetail.js"></script>
 </html>

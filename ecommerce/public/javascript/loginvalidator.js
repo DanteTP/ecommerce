@@ -3,9 +3,10 @@ window.onload = ()=>{
         let cookiecheck = document.getElementById('checkbox')
         let cookielabel = document.getElementById('checklabel')
 
-        if(sessionStorage.getItem('cookie')=='rechazada'){
-            cookiecheck.classList.add('hidden')
-            cookielabel.classList.add('hidden')
+        if(cookiecheck=='on'){
+            if(localStorage.getItem('cookie')=='rechazada'){
+                localStorage.setItem('cookie','aceptada')
+            }
         }
     
         

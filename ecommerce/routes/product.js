@@ -4,17 +4,17 @@ var router = express.Router();
 //GET
 // Carga pantalla detalle producto
 router.get('/detail', function(req, res, next) {
-  res.render('productdetail', { title: 'Express' });
+  res.render('productdetail', { title: 'Express',user:'' });
 })
 
 // Carga pantalla carrita
 router.get('/cart', function(req, res, next) {
-  res.render('cart', { title: 'Express' });
+  res.render('cart', { title: 'Express',user:''  });
 })
 
 // Carga pantalla carga producto
 router.get('/new', function(req, res, next) {
-  res.render('addprod', { title: 'Express' });
+  res.render('addprod', { title: 'Express',user:''  });
 })
 // Carga productos luego de búsqueda
 
