@@ -15,15 +15,15 @@ const Products = sequelize.define('Products', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  Email: {
-    type: DataTypes.STRING,
+  Price: {
+    type: DataTypes.DECIMAL,
     allowNull: false
   },
-  Password: {
-    type: DataTypes.STRING,
+  Discount: {
+    type: DataTypes.DECIMAL,
     allowNull: false
   },
-  Admin: {
+  Offer: {
     type: DataTypes.STRING,
     allowNull: false
   }
