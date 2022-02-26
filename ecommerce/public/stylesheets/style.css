@@ -125,10 +125,12 @@ footer{
 .cardimg{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .cardimg img{
-  width: 50%;
+  width: 60%;
+  height: 20vh;
 }
 .cardname{
   color: grey;
@@ -302,9 +304,10 @@ i.material-icons{
      align-content: center;
      flex-direction: column;
     }
-    
+
+
    .cardimg img{
-    width: 35%;
+    width: 40%;
   }
 
   .cardname{
@@ -340,6 +343,7 @@ i.material-icons{
   }
 
   .cardimg img{
-    width: 40%;
+    width: 60%;
+    height: 10vh;
   }
 }

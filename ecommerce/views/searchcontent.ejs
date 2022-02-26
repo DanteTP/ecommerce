@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <% include ./partials/head.ejs %> 
+  <body class="bod">
+    <% include ./partials/header.ejs %> 
+    <div class="filterbody">
+      <div class="filteroptions">
+      <div class="filterinput">
+        <input id="range" type="range" value="0" min="0" max="10000" step="1000" list="tickmarks">
+        <datalist id="tickmarks">
+          <option value="0">
+          <option value="1000">
+          <option value="2000">
+          <option value="3000">
+          <option value="4000">
+          <option value="5000">
+          <option value="6000">
+          <option value="7000">
+          <option value="8000">
+          <option value="9000">
+          <option value="10000">
+        </datalist>
+        <div id="rangevalue" class="rangevalue"></div>
+      </div>
+      <div class="filterlist">
+        <select name="" id="">
+          <option value="">Lorem, ipsum.</option>
+          <option value="">Lorem, ipsum.</option>
+          <option value="">Lorem, ipsum.</option>
+          <option value="">Lorem, ipsum.</option>
+
+        </select>
+      </div>
+      </div>
+    <div id="filtercontet" class="filteredcontent"> 
+    <% for( let index = 0; index < 3; index++ ) { %>
+      <div id="rowlist" class="rowcontainer">
+          <div class="imgcontainer">
+            <div class="filterimg">
+              <img id="cardimg" src="/images/Comedero-Dispenser-Alimentador-Programable.jpg" alt="">
+          </div>
+          </div>
+          <div class="titlecontainer"><h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, adipisci.</h1></div>
+          <div class="pricecontainer">
+            <div class="searchprice"><%= (index+1)*1000 %> </div>
+          </div>
+      </div>
+      <% } %>
+    </div>
+     </div>
+     </div>
+  </body>
+  <script src="/javascript/searchcontent.js"></script>
+  <footer>
+    PIe de pagina
+  </footer>

@@ -7,6 +7,7 @@ const fs = require('fs')
 const path = require('path');
 var cookieParser = require('cookie-parser')
 const session = require('express-session');
+const sharp = require('sharp');
 
 
 module.exports = {
@@ -79,15 +80,9 @@ module.exports = {
         res.render('user',{title:'express',user:user,screen:'passsuccess',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
         }},
     createaddress: async (req,res,next)=>{
-        let data = {
-            Adress:req.body.Adress,
-            Province: req.body.Province,
-            City: req.body.City,
-            Zip_Code: req.body.Zip_Code,
-        }
         let errors = validationResult(req)
         if(!errors.isEmpty()){ 
-            res.render('user',{title:'express',user:req.user,screen:'adderror',usererrors:'false',passerrors:'false',addresserror:errors.errors,data:data,imageerror:'false'})
+            res.render('user',{title:'express',user:req.user,screen:'adderror',usererrors:'false',passerrors:'false',addresserror:errors.errors,data:req.body,imageerror:'false'})
         }else{
             let address = await db.Adresses.create(req.body)
             let user = await db.Users.findByPk(req.body.User_Id, {include:['direccionesusuario','imagenusuario']})
@@ -110,10 +105,17 @@ module.exports = {
         res.render('user',{title:'express',user:user,screen:'editaddresssucc',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
     },
     addimage: async (req,res,next) =>{
+        //   let data =  await sharp(req.file.path)
+        //    .resize({
+        //     width: 50,
+        //   })
+        //   .toFormat("jpeg", { mozjpeg: true })
+        //   .toFile(`${req.file.path}compresed.jpeg`)
+        //   res.send(req.file)
         let errors = validationResult(req)
         if(!errors.isEmpty()){
         res.render('user',{title:'express',user:req.user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:errors.errors})    
-    }else{
+        }else{
         let previmg = await db.Userimages.findOne({where:{User_Id:req.body.User_Id}})
         if (previmg){
                 fs.rm(path.join(__dirname,'../public/images/',previmg.dataValues.Name),(err) => {
@@ -124,8 +126,8 @@ module.exports = {
                     }
                     console.log("File deleted successfully")})
             
-         }            
-            if (previmg){
+        }            
+        if (previmg){
                 let image = await db.Userimages.update({
                 Name:req.file.filename},{where:{id:previmg.dataValues.id}})
                 let user = await db.Users.findByPk(req.body.User_Id, {include:['direccionesusuario','imagenusuario']})

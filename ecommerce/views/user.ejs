@@ -13,7 +13,6 @@
                 <div id="imgbuttoncontainer" style="display: flex; justify-content: center; margin-top: 3%;" class="">
                     <a id="imgbutton" style="color: #8cb46b; font-size: 150%;" href=""><i class="fa fa-plus"></i></a></div>
                <div  id="imgform" class="hidden"> <form action="/users/user/image" method="post" enctype="multipart/form-data" >
-                <input type="hidden" name="User_Id" value="<%= user.id %>">
                 <input  type="file" name="userimg" id="userimginput">
                 <button class="imgbutton" type="submit">Cambiar foto</button></form></div></div>
                 <% if (imageerror) { %>
@@ -38,17 +37,7 @@
             </div>
         </div>
         <div id='datashow' class="userinfo">
-            <div id='datauser'class="visible"><% include ./partials/user/home.ejs %></div>
-            <div id='data' class="hidden" ><% include ./partials/user/edit.ejs %></div>
-                <div id='data'class="addressdat hidden">  
-                    <% if (user.direccionesusuario.length>0) { %>
-                      <% include partials/user/card.ejs %>
-                    <% } else { %>
-                      <% include partials/user/add_address.ejs %>
-                        <% } %> </div>
-            <div id='data' class="hidden" ><% include ./partials/user/pass.ejs %> </div>
-            <div id='data' class="hidden" >Pedidos </div>
-            <div id='editdata' class="hidden"><% include ./partials/user/edit_address.ejs %></div>
+
         </div>
         </div>
 </body>

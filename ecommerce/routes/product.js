@@ -28,4 +28,9 @@ router.get('/new', function(req, res, next) {
 
 // Finalización de la compra y creación del pedido
 
+router.get('/search', function(req, res, next) {
+  res.render('searchcontent', { title: 'Express',user:''  });
+})
+
+
 module.exports = router;

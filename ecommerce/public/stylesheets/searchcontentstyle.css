@@ -1,0 +1,207 @@
+
+.hidden{
+    display: none;
+}
+
+.filterbody{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.filteroptions{
+    width: 70%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.rowcontainer{
+    display: flex;
+    justify-content: space-around;
+    height: fit-content;
+    flex-direction: line;
+    flex-wrap: wrap;
+    margin-top: 1%;
+    align-items: center;
+}
+
+.filteredcontent{
+    width: 70%;
+    background-color: rgba(212, 206, 206, 0.959);
+    display: flex;
+    flex-direction: column;
+}
+
+.imgcontainer{
+    width: 20%;
+    background-color: white;
+}
+
+.titlecontainer{
+    display: flex;
+    align-items: center;
+    height: 15vh;
+    width: 55%;
+    background-color: rgb(233, 238, 243);
+}
+
+.titlecontainer h1{
+    font-size: 150%;
+}
+.pricecontainer{
+    height: 15vh;
+    width: 20%;
+    background-color: rgb(233, 238, 243);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchprice{
+    font-size: 150%;
+    text-align: center;
+    font-weight: 900;
+    color: teal;
+}
+
+.filterimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filterimg img{
+    width: 60%;
+    height: 15vh;
+}
+
+.filterinput{
+    width: 40%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filterinput input{
+    width: 50%;
+}
+
+.filterlist{
+    width: 40%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+.rangevalue{
+    font-size: 70%; 
+    height: 3vh; 
+    line-height: 3vh;
+    width: 25%;
+    background-color: rgb(233, 238, 243);
+}
+
+@media (max-width:599px) {  
+    
+    .pricecontainer{
+        height: 10vh;
+    }
+
+    .titlecontainer{
+        height: 10vh;
+    }
+    .imgcontainer{
+        height: 10vh;
+    }
+    .titlecontainer h1{
+        font-size: 70%;
+    }
+
+    .searchprice{
+        font-size: 70%;
+    }
+
+    .filterimg img{
+        width: 80%;
+        height: 10vh;
+    }
+
+    .filterinput{
+        width: 50%;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .filterinput input{
+        width: 80%;
+        height: 3vh;
+    }
+    .filterlist{
+        width: 45%;
+    }
+    .filterlist select{
+        font-size: 60%;
+    }
+    
+}
+@media (min-width:600px) and (max-width:799px){
+    .pricecontainer{
+        height: 12vh;
+    }
+
+    .titlecontainer{
+        height: 12vh;
+    }
+    .imgcontainer{
+        height: 12vh;
+    }
+
+    .filterimg img{
+        width: 80%;
+        height: 12vh;
+    }
+    .filterinput{
+        width: 60%;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .filterinput input{
+        width: 70%;
+        height: 3vh;
+    }
+    .filterlist{
+        width: 40%;
+    }
+    .filterlist select{
+        font-size: 60%;
+    }
+}  
+    @media (min-width:800px) {
+
+        .filterinput{
+            width: 60%;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .filterinput input{
+            width: 50%;
+            height: 3vh;
+        }
+        .rangevalue{
+            width: 15%;
+        }
+        .filterlist{
+            width: 35%;
+        }
+        .filterlist select{
+            font-size: 80%;
+        }
+    }  
+
+
