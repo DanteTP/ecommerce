@@ -2,6 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 let Reviews=require('./reviews')
 let PurchaseProducts=require('./purchaseproducts')
 const Pictures = require('./pictures')
+const Categories = require('./categories')
 
 module.exports = (sequelize, Sequelize) => {
 
@@ -26,6 +27,10 @@ const Products = sequelize.define('Products', {
   Offer: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+  Category_Id: {
+    type: DataTypes.INTEGER,
+    allowNull: false
   }
 },{timestamps:false}, {
   // Other model options go here
@@ -43,6 +48,10 @@ Products.associate = (models)=>{
   Products.hasMany(models.Pictures,{
     as:'Picturesperproduct',
     foreignKey:'Product_Id'
+  }),
+  Products.belongsTo(models.Categories,{
+    as:"CategoryperProduct",
+    foreignKey:'Category_Id'
   })
 }
 return Products
