@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var prodcontroller = require('../controllers/productcontroller')
+let auth = require('../middlewares/others/session/cookie')
 
 //GET
 // Carga pantalla detalle producto
-router.get('/detail', function(req, res, next) {
-  res.render('productdetail', { title: 'Express',user:'' });
-})
+router.get('/detail/:productId', auth, prodcontroller.proddetail)
 
 // Carga pantalla carrita
 router.get('/cart', function(req, res, next) {

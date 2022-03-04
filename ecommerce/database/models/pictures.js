@@ -19,7 +19,8 @@ const Pictures = sequelize.define('Pictures', {
 
 Pictures.associate=(models)=>{
   Pictures.belongsTo(models.Products,{
-    as:"productperpicture"
+    as:"productperpicture",
+    foreignKey:'Product_Id'
   })
 }
 

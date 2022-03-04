@@ -31,6 +31,10 @@ const Products = sequelize.define('Products', {
   Category_Id: {
     type: DataTypes.INTEGER,
     allowNull: false
+  },
+  Stock: {
+    type: DataTypes.INTEGER,
+    allowNull: false
   }
 },{timestamps:false}, {
   // Other model options go here

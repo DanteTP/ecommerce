@@ -70,7 +70,7 @@ header{
 
 .menu{
   background-color:#b5d998;
-    width: 100%;
+    margin-left: 14.5%;
 }
 
 
@@ -235,7 +235,7 @@ i.material-icons{
   background-color: beige;
   border-radius: 10px;
 }
-@media (max-width:800px) {  
+@media (min-width:600px) and (max-width:800px) {  
   .cartuser div{
     height: 3vh;
   }
@@ -261,6 +261,10 @@ i.material-icons{
   .searchcontent{
     height: 2vh;
   }
+  .menu{
+    margin-left: 16.5%;
+  }
+
 }
 
 
