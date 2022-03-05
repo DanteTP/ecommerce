@@ -247,4 +247,8 @@
     .detaildetail{
         height: fit-content;
     }
+    .detailaddcart form button{
+        font-size: 90%;
+        height: fit-content;
+    }
 }

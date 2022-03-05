@@ -9,16 +9,20 @@ window.onload = ()=>{
       let range = document.getElementById('range')
       let categoryfilter = document.getElementById('categoryfilter')
       
+      function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      }
+
       let prevfilter = {
           price:range.max,
           category:0
       }
       let searchfiltered = []
-      rangevalue.innerHTML=`${range.value}`
+      rangevalue.innerHTML=`${formatNumber(range.value)}`
       
       range.addEventListener('change',()=>{
           filtercontent.innerHTML=''
-          rangevalue.innerHTML=`$ ${range.value}`
+          rangevalue.innerHTML=`$ ${formatNumber(range.value)}`
           range.value==0?prevfilter.price=Number(range.max):prevfilter.price=Number(range.value)
           if(prevfilter.category!==0){
           searchfiltered = data.filter((items)=>{
@@ -37,7 +41,7 @@ window.onload = ()=>{
                 <a href="/product/detail/${searchfiltered[i].id}" class="titlecontainer" style="text-decoration: none;" >
                 <div class="titlecontainer"><h1>${searchfiltered[i].Name}</h1></div></a>
                 <a href="/product/detail/${searchfiltered[i].id}" class="pricecontainer" style="text-decoration: none;" ><div class="pricecontainer">
-                  <div class="searchprice">${searchfiltered[i].Price}</div>
+                  <div class="searchprice">$${formatNumber(searchfiltered[i].Price)}</div>
                 </div></a>
             </div>`
           }

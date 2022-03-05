@@ -26,6 +26,7 @@
       <div class="filterlist">
       </div>
       </div>
+    <div class="routescontainer"><a style="text-decoration: none;" href="/product/gencatsearch/<%= filter.id %>"><%= filter.Name %></a><a style="text-decoration: none; color: grey;"> > <%= data.Name %></a></div>
     <div id="filtercontet" class="filteredcontent"> 
       <% for( let index = 0; index < data.Produtspercategory.length; index++ ) { %>
         <div id="rowlist" class="rowcontainer">
@@ -37,7 +38,7 @@
             <a href="/product/detail/<%= data.Produtspercategory[index].id  %> " class="titlecontainer" style="text-decoration: none;" >
             <div ><h1><%= data.Produtspercategory[index].Name %> </h1></div></a>
             <a href="/product/detail/<%= data.Produtspercategory[index].id  %> " class="pricecontainer" style="text-decoration: none;" > <div class="pricecontainer">
-             <div class="searchprice">$<%= data.Produtspercategory[index].Price %> </div>
+             <div class="searchprice">$<%= formatNumber(data.Produtspercategory[index].Price) %> </div>
             </div></a>
         </div>
       <% } %>

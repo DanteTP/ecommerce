@@ -27,11 +27,12 @@
         <select name="" id="categoryfilter">
           <option value="0">Elige una categoria</option>
           <% for( let index = 0; index < filter.length; index++ ) { %>
-            <option value="<%= filter[index].id %>"><%= filter[index].Name %> </option>
+            <option id="catoption" value="<%= filter[index].id %>"><%= filter[index].Name %> </option>
           <% } %>
         </select>
       </div>
       </div>
+      <div class="routescontainer"><a style="text-decoration: none; color: grey;" ><%= cat %> </a><a id="categoryfilterroute" style="text-decoration: none; color: grey;"></a> </div>
     <div id="filtercontet" class="filteredcontent"> 
       <% for( let index = 0; index < data.length; index++ ) { %>
         <% for( let e = 0; e < data[index].Produtspercategory.length; e++ ) { %>
@@ -45,7 +46,7 @@
             <div class="titlecontainer"><h1><%= data[index].Produtspercategory[e].Name %> </h1></div></a>
               <a href="/product/detail/<%= data[index].Produtspercategory[e].id  %> " class="pricecontainer" style="text-decoration: none;" >
               <div class="pricecontainer">
-             <div class="searchprice">$<%= data[index].Produtspercategory[e].Price %> </div>
+             <div class="searchprice">$<%= formatNumber(data[index].Produtspercategory[e].Price) %> </div>
             </div></a>
         </div>
         <% } %>

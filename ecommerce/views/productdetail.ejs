@@ -14,7 +14,7 @@
         </div>
         <div class="detaildetail">
             <div class="detailtitle"><h1><%= prod.Name %> </h1></div>
-            <div class="detailprice">$<%= prod.Price %> </div>
+            <div class="detailprice">$<%= formatNumber(prod.Price) %> </div>
             <input type="hidden" id="stockvalue" name="" value="<%= prod.Stock %>">
             <div class="detailstock">stock disponible: <%= prod.Stock %> </div>
             <div class="detailcounter">
