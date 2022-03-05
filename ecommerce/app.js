@@ -10,7 +10,8 @@ var cookieParser = require('cookie-parser')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require(path.join(__dirname,'./routes/users'));
-var productRouter = require('./routes/product');
+var productRouter = require(path.join(__dirname,'./routes/product'));
+var apiproductRouter = require(path.join(__dirname,'./routes/productapi'));
 
 var app = express();
 
@@ -34,9 +35,12 @@ app.use(
     saveUninitialized: true,
   })
 );
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/product', productRouter);
+app.use('/api', apiproductRouter)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

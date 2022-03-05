@@ -3,7 +3,7 @@
     <% include ./partials/head.ejs %> 
 <body>
     <% include ./partials/header.ejs %> 
-    <div class="category" style="margin-left: 3%;height: 3vh; line-height: 3vh;margin-top: 3%;font-size: 140%;color: grey;"><a style="text-decoration: none; color: grey;" href=""><%= cat1.Name %></a> > <a href="" style="text-decoration: none; color: grey;"><%= prod.CategoryperProduct.Name %> </a> </div>
+    <div class="category" style="margin-left: 3%;height: 3vh; line-height: 3vh;margin-top: 3%;font-size: 140%;color: grey;"><a style="text-decoration: none; color: grey;" href="/product/gencatsearch/<%= cat1.id %>"><%= cat1.Name %></a> > <a href="/product/search/<%= prod.CategoryperProduct.id %>" style="text-decoration: none; color: grey;"><%= prod.CategoryperProduct.Name %> </a> </div>
     <div class="detailbody">
         <div class="detailimg">
             <div class="fade" >

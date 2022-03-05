@@ -9,12 +9,24 @@ router.get('/detail/:productId', auth, prodcontroller.proddetail)
 
 // Carga pantalla carrita
 router.get('/cart', function(req, res, next) {
-  res.render('cart', { title: 'Express',user:''  });
+res.render('cart', { title: 'Express',user:''});
 })
+
+// Subcategory content fitlter & view
+router.get('/search/:categoryId',auth, prodcontroller.menusubcatcontent)
+
+// General category content fitlter & view
+router.get('/gencatsearch/:generalcategoryId',auth, prodcontroller.menugeneralcatcontent)
+
+
+
+
+
+
 
 // Carga pantalla carga producto
 router.get('/new', function(req, res, next) {
-  res.render('addprod', { title: 'Express',user:''  });
+  res.render('addprod', { title: 'Express',user:''});
 })
 // Carga productos luego de búsqueda
 

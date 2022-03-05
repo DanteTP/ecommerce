@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <% include ./partials/head.ejs %> 
+  <body class="bod">
+    <% include ./partials/header.ejs %> 
+    <input type="hidden" name="" id="categoryId" value="<%= data.id %> ">
+    <div class="filterbody">
+      <div class="filteroptions">
+      <div class="filterinput">
+        <input id="range" type="range" value="0" min="0" max="10000" step="1000" list="tickmarks">
+        <datalist id="tickmarks">
+          <option value="0">
+          <option value="1000">
+          <option value="2000">
+          <option value="3000">
+          <option value="4000">
+          <option value="5000">
+          <option value="6000">
+          <option value="7000">
+          <option value="8000">
+          <option value="9000">
+          <option value="10000">
+        </datalist>
+        <div id="rangevalue" class="rangevalue"></div>
+      </div>
+      <div class="filterlist">
+      </div>
+      </div>
+    <div id="filtercontet" class="filteredcontent"> 
+      <% for( let index = 0; index < data.Produtspercategory.length; index++ ) { %>
+        <div id="rowlist" class="rowcontainer">
+            <div class="imgcontainer">
+              <div class="filterimg">
+                <img id="cardimg" src="/images/<%= data.Produtspercategory[index].Picturesperproduct[0].Name %>" alt="">
+            </div>
+            </div>
+            <a href="/product/detail/<%= data.Produtspercategory[index].id  %> " class="titlecontainer" style="text-decoration: none;" >
+            <div ><h1><%= data.Produtspercategory[index].Name %> </h1></div></a>
+            <a href="/product/detail/<%= data.Produtspercategory[index].id  %> " class="pricecontainer" style="text-decoration: none;" > <div class="pricecontainer">
+             <div class="searchprice">$<%= data.Produtspercategory[index].Price %> </div>
+            </div></a>
+        </div>
+      <% } %>
+    </div>
+     </div>
+     </div>
+  </body>
+  <script src="/javascript/subcatsearchcontent.js"></script>
+  <footer>
+    PIe de pagina
+  </footer>

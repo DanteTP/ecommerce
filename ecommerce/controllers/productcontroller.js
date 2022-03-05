@@ -20,11 +20,42 @@ module.exports = {
         res.render('productdetail',{title:'express',user:req.user,prod:data,cat1})
     },
     searchbarcontent:(req,res,next)=>{
-
-    },
-    menucatcontent:(req,res,next)=>{
         
     },
-    menusubcatcontent:(req,res,next)=>{}
+    menusubcatcontent: async (req,res,next)=>{
+        let categories = await db.Categories.findByPk(req.params.categoryId,{
+                include:[{
+                  model: db.Products,
+                  as: 'Produtspercategory',
+                  include:[{
+                    model:db.Pictures,
+                    as:'Picturesperproduct'
+                  }]
+                }]
+              })
+        let filter = await db.Categories.findAll({where:{
+            Subcategory:categories.Subcategory
+        }})
+        res.render('subcatcontent',{title:'express',user:req.user,data:categories,filter})
+    },
+    menugeneralcatcontent: async (req,res,next)=>{
+      let categories = await db.Categories.findAll({where:
+        {Subcategory:req.params.generalcategoryId},
+        include:[{
+          model: db.Products,
+          as: 'Produtspercategory',
+          include:[{
+            model:db.Pictures,
+            as:'Picturesperproduct'
+          }]
+        }]
+      })
 
+    let filter = await db.Categories.findAll({where:{
+        Subcategory:req.params.generalcategoryId
+    }})
+    // console.log(categories.length);
+    // res.send(categories[0].Produtspercategory[0].Name)
+    res.render('gencatcontent',{title:'express',user:req.user,data:categories,filter})
+  }
 }
