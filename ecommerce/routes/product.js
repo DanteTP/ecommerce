@@ -18,6 +18,12 @@ router.get('/search/:categoryId',auth, prodcontroller.menusubcatcontent)
 // General category content fitlter & view
 router.get('/gencatsearch/:generalcategoryId',auth, prodcontroller.menugeneralcatcontent)
 
+// General category content fitlter & view
+router.get('/seacrhcontent',auth, prodcontroller.searchbarcontent)
+
+// cart view
+router.get('/cart',auth,prodcontroller.cartview)
+
 
 
 

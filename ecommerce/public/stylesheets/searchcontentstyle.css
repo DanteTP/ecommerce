@@ -24,6 +24,7 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 .rowcontainer{
     display: flex;
@@ -33,6 +34,7 @@ a{
     flex-wrap: wrap;
     margin-top: 1%;
     align-items: center;
+    width: 60%;
 }
 .rowcontainerh{
     display: none;
@@ -49,12 +51,13 @@ a{
 .imgcontainer{
     width: 20%;
     background-color: white;
+    height: fit-content;
 }
 
 .titlecontainer{
     display: flex;
     align-items: center;
-    height: 15vh;
+    height: 12vh;
     width: 55%;
     background-color: rgb(233, 238, 243);
 }
@@ -63,7 +66,7 @@ a{
     font-size: 150%;
 }
 .pricecontainer{
-    height: 15vh;
+    height: 12vh;
     width: 20%;
     background-color: rgb(233, 238, 243);
     display: flex;
@@ -86,7 +89,7 @@ a{
 
 .filterimg img{
     width: 60%;
-    height: 15vh;
+    height: 12vh;
 }
 
 .filterinput{
@@ -115,6 +118,8 @@ a{
     width: 25%;
     background-color: rgb(233, 238, 243);
 }
+
+
 
 @media (max-width:599px) {  
     
@@ -152,7 +157,7 @@ a{
         height: 3vh;
     }
     .filterlist{
-        width: 35%;
+        width: 100%;
     }
     .filterlist select{
         font-size: 60%;

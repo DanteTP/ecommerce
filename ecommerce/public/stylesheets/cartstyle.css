@@ -1,15 +1,60 @@
-.cartbody{
+.cartcounter{
+    width: 35%;
+    border: 1px solid #cacaca;
+    border-radius: 25px;
+    height: 3vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carttitlecontainer{
+    display: flex;
+    align-items: center;
+    height: 12vh;
+    width: 55%;
+    background-color: rgb(233, 238, 243);
+    flex-wrap: wrap;
+}
+
+.carttitlecontainer h1{
+    font-size: 90%;
+}
+
+.cartdelete{
+    color: red;
+    margin-left: 10%;
+    font-size: 120%;
+}
+
+.cartendbuttons{
+    width: 75%;
+}
+
+.cartendbuttons{
     display: flex;
     justify-content: space-around;
-    align-items: center;    
 }
 
-
-
-
-
-.cartdelbutton{
-    width: 3%;
-    background-color: tomato;
-    border-radius: 200px;
+.cartendbuttons button{
+    text-decoration: none;
+    background-color: teal;
+    border-radius: 25px;
+    color: whitesmoke;
+    text-align: center;
+    width: 30%;
+    font-size: 120%;
+    font-weight: 500;
 }
+
+@media (max-width:599px) {  
+  
+}
+@media (min-width:600px) and (max-width:799px){
+   
+}  
+    @media (min-width:800px) {
+
+    }  
+
+

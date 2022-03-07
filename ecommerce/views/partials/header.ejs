@@ -3,8 +3,8 @@
       <div><a href="/"><img src="/images/logoweb2.png" alt=""></a></div>
     </div>
     <div class="searchbar">
-      <form class="searchform" action="">
-        <input class="searchcontent" type="text" placeholder="Contanos que estas buscando">
+      <form class="searchform" action="/product/seacrhcontent" method="get">
+        <input name="searchvalue" class="searchcontent" type="text" placeholder="Contanos que estas buscando">
         <button class="searchbutton" type="submit"><i class="fas fa-search"></i></button>
       </form>
     </div>
@@ -16,7 +16,7 @@
             <i class="material-icons">person</i>
    <% } %>
        </a></div>
-      <div><a href=""><i class="material-icons">shopping_cart</i></a></div>
+      <div><a href="/product/cart"><i class="material-icons">shopping_cart</i></a></div>
     </div>
     <div class="menu"><i class="fas fa-bars"></i>
       <div class="menubody">

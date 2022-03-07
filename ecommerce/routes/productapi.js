@@ -8,5 +8,6 @@ router.get('/product/search/:categoryId',prodcontroller.menucatcontent)
 
 router.get('/product/gencatsearch/:generalcategoryId',prodcontroller.menugeneralcatcontent)
 
+router.get('/product/searchbar/:searchvalue', prodcontroller.searchbar)
 
 module.exports = router;
