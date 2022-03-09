@@ -17,7 +17,7 @@ module.exports = {
        Price: 1679,
        Discount: 25,
        Offer: "normal",
-
+        
       },
       {
        Name: "Cama Little Arena",

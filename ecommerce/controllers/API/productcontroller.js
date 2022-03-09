@@ -72,4 +72,23 @@ res.json({
   },
   data: {products,
   categories: categories}})
-}}
+},
+cartadd:async(req,res,next)=>{
+  let prod = await db.Products.findByPk(req.params.ProdId,{include:['Picturesperproduct']})
+  console.log(prod);
+  let datap = {
+    id:prod.id,
+    Name: prod.Name,
+    Price: prod.Price,
+    Stock: prod.Stock,
+    Img: prod.Picturesperproduct[0].Name
+  }
+  res.json({
+    meta:{
+        status: 200,
+        link: 'api/product/gencatsearch/:generalcategoryId'
+    },
+    data: datap
+  })
+}
+}

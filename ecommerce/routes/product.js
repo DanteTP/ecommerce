@@ -7,10 +7,6 @@ let auth = require('../middlewares/others/session/cookie')
 // Carga pantalla detalle producto
 router.get('/detail/:productId', auth, prodcontroller.proddetail)
 
-// Carga pantalla carrita
-router.get('/cart', function(req, res, next) {
-res.render('cart', { title: 'Express',user:''});
-})
 
 // Subcategory content fitlter & view
 router.get('/search/:categoryId',auth, prodcontroller.menusubcatcontent)

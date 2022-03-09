@@ -23,8 +23,9 @@
                 <div id="counteradd" class="counterbut"><i class="fas fa-plus"></i></div>
             </div>
             <div class="detailaddcart">
-                <form  action="">
-                <button type="submit">Agregar al carrito</button>
+                <form id="cartadd"  action="/product/cart" method="get">
+                <input type="hidden" name="" id="prodcartid" value="<%= prod.id %> ">
+                <button  type="submit">Agregar al carrito</button>
                 </form>
                 <form style="display: none;" action="">
                 <button type="submit">Comprar</button>

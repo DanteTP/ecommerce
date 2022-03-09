@@ -48,12 +48,70 @@
 }
 
 @media (max-width:599px) {  
-  
+    .carttitlecontainer{
+        height: 8vh;
+    }
+    .pricecontainer{
+        height: 8vh;
+    }
+    .filterimg img{
+        height: 8vh;
+    }
+    .imgcontainer{
+        height: 8vh;
+    }
+    .carttitlecontainer h1{
+        font-size: 60%;
+        width: 90%;
+    }
+    .countervalue{
+        font-size: 50%;
+    }
+    .counterbut{
+        font-size: 50%;
+    }
+    .cartcounter{
+        width: 50%;
+        height: 1.5vh;
+    }
+    .cartdelete{
+        font-size: 50%;
+        margin-left: 20%;
+    }
 }
 @media (min-width:600px) and (max-width:799px){
-   
+    .carttitlecontainer{
+        height: 8vh;
+    }
+    .pricecontainer{
+        height: 8vh;
+    }
+    .filterimg img{
+        height: 8vh;
+    }
+    .imgcontainer{
+        height: 8vh;
+    }
+    .carttitlecontainer h1{
+        font-size: 110%;
+        width: 90%;
+    }
+    .countervalue{
+        font-size: 80%;
+    }
+    .counterbut{
+        font-size: 80%;
+    }
+    .cartcounter{
+        width: 60%;
+        height: 2vh;
+    }
+    .cartdelete{
+        font-size: 90%;
+        margin-left: 15%;
+    }
 }  
-    @media (min-width:800px) {
+@media (min-width:800px) {
 
     }  
 

@@ -10,4 +10,7 @@ router.get('/product/gencatsearch/:generalcategoryId',prodcontroller.menugeneral
 
 router.get('/product/searchbar/:searchvalue', prodcontroller.searchbar)
 
+router.get('/product/addcart/:ProdId', prodcontroller.cartadd)
+
+
 module.exports = router;

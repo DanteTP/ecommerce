@@ -3,29 +3,9 @@
   <% include ./partials/head.ejs %> 
   <body class="bod">
     <% include ./partials/header.ejs %> 
-    <div class="filterbody">
-      <% for( let index = 0; index < 3; index++ ) { %>
-        <div id="rowlist" class="rowcontainer">
-            <div class="imgcontainer">
-              <div class="filterimg">
-                <img id="cardimg" src="/images/Alimento Royal Canin1.jpeg" alt="">
-            </div>
-            </div>
-            <div  class="carttitlecontainer">
-              <h1>Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
-              <div class="cartcounter">
-                <div id="countsus" class="counterbut"><i class="fas fa-minus"></i></div>
-                <div id="countvalue" class="countervalue">1</div>
-                <div id="counteradd" class="counterbut"><i class="fas fa-plus"></i></div>
-            </div>
-            <div class="cartdelete"><i class="fas fa-trash"></i></div>
-            </div>
-            <div class="pricecontainer">
-             <div class="searchprice">$2000</div>
-            </div>
-        </div>
-      <% } %>
-      <div id="rowlist" class="rowcontainer">
+    <div id='filterbody' class="filterbody">
+      
+      <!-- <div id="rowlist" class="rowcontainer">
         <div class="cartendbuttons">
           <button>Seguir comprando</button>
           <button>Finalizar compra</button>
@@ -33,10 +13,10 @@
         <div class="pricecontainer" style="background-color: rgb(247, 245, 245); height: 5vh;">
           <div class="searchprice">Total $2000</div>
          </div>
-      </div>
+      </div> -->
     </div>
   </body>
-  <!-- <script src="/javascript/subcatsearchcontent.js"></script> -->
+  <script src="/javascript/cart.js"></script>
   <footer>
     PIe de pagina
   </footer>
