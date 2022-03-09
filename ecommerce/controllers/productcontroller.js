@@ -36,9 +36,11 @@ module.exports = {
             product,
             subcategory
           }
-          gencat.push(subcategory)
+          if(gencat.findIndex(item=>item.id==subcategory.id)<0){
+            gencat.push(subcategory)}
           data.push(dato)
-      }
+      }   
+
           res.render('searchbarcontent',{title:'express',user:req.user,data:data,formatNumber:formatNumber,gencat,search})
       },
     menusubcatcontent: async (req,res,next)=>{

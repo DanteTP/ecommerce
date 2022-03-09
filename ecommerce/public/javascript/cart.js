@@ -13,9 +13,9 @@ window.onload = ()=>{
       }
     let cartbody = document.getElementById('filterbody')
     for (let index = 0; index < cart.length; index++) {
-        cartbody.innerHTML+=`<div id="rowlist" class="rowcontainer">
+        cartbody.innerHTML+=`<div id="rowlist" class="rowcartcontainer">
         <input id='cartvalueid' type="hidden" value='${cart[index].data.id}'>
-        <div class="imgcontainer"><div class="filterimg">
+        <div class="cartimgcontainer"><div class="carterimg">
         <img id="cardimg" src="/images/${cart[index].data.Img}" alt=""></div></div>
         <div  class="carttitlecontainer">
         <h1>${cart[index].data.Name}</h1><div class="cartcounter">
@@ -23,7 +23,7 @@ window.onload = ()=>{
         <div id="countvalue" class="countervalue">${cart[index].qty}</div>
         <div id="counteradd" class="counterbut"><i class="fas fa-plus"></i></div></div>
         <div class="cartdelete"><i class="fas fa-trash"></i></div></div>
-        <div class="pricecontainer"><div class="searchprice">$${formatNumber(cart[index].subtotal)}</div>
+        <div class="pricecartcontainer"><div class="searchprice">$${formatNumber(cart[index].subtotal)}</div>
         </div></div>`
         }
     
