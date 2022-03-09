@@ -11,12 +11,12 @@
     <% include ./partials/header.ejs %> 
     <div class="content">
       <div class="indextitle">Ofertas</div>
-      <div class="cards"><% for( let i = 22; i < 26; i++ ) { %>
+      <div class="cards">
+        <% for( let i = 0; i < products.length; i++ ) { %>
         <% include ./partials/card.ejs %> 
       <% } %></div>
-      
       <div class="indextitle">Visitados</div>
-      <div class="cards"><% for( let i = 22; i < 26; i++ ) { %>
+      <div class="cards"><% for( let i = 0; i < products.length; i++ ) { %>
         <% include ./partials/card.ejs %> 
       <% } %></div>
     </div>
