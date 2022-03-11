@@ -11,20 +11,15 @@
     <% include ./partials/header.ejs %> 
     <div class="content">
       <div class="indextitle">Ofertas</div>
-<<<<<<< HEAD
       <div class="cards">
         <% for( let i = 0; i < products.length; i++ ) { %>
-=======
-      <div class="cards"><% for( let i = 0; i < products.length; i++ ) { %>
->>>>>>> cart
         <% include ./partials/card.ejs %> 
       <% } %></div>
-      <div class="indextitle">Visitados</div>
+      <div class="indextitle">Visitados recientemente</div>
       <div class="cards"><% for( let i = 0; i < products.length; i++ ) { %>
         <% include ./partials/card.ejs %> 
       <% } %></div>
     </div>
-    
   </body>
   <script src="/javascript/index.js"></script>
   <footer>
