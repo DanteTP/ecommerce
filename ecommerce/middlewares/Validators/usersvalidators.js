@@ -87,11 +87,18 @@ module.exports = {
             .isInt().withMessage('Por favor introduce un código postal válido')
     ],
     image:[
-        check('userimg').custom((value, { req }) => {
+        check('userimg')
+        .custom((value, { req }) => {
             if (req.fileValidationError) {
               throw new Error('La imagen debe ser de tipo JPG, JPEG, PNG, GIF');
             }
             return true;
+        })
+        .custom((value,{req})=>{
+            if(req.file==undefined){
+                throw new Error('Por favor seleccione una imagen')
+            }
+            return true
         })
     ]
 }

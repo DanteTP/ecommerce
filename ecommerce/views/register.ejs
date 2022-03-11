@@ -5,7 +5,7 @@
     <% include ./partials/header.ejs %> 
     <div class="regbody">
         <div class="regform">
-            <div class="register">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, voluptate architecto soluta laborum corrupti placeat necessitatibus nisi iusto delectus doloremque cum nulla officiis saepe eos pariatur accusantium autem. Ea fugit iure porro animi in sit atque quo ipsa! Nam, explicabo.
+            <div class="register">
                 <form action="/users/register/add" method="POST" id="regsubmit">
                     <div class="name">
                     <label for="Name">Nombre</label>
@@ -33,10 +33,6 @@
                         <p><%= errors[i].msg %> </p>
                     <% } %>
                 <% } %>
-                
-                    <!-- <p>Ingrese una dirección de mail válida</p>
-                    <p>La contraseña debe tener una longitud de 8 caracteres y al menos 1 letra mayúscula</p>
-                    <p>Las contraseñas no coinciden</p> -->
                 </div>
             </div>  
         </div>

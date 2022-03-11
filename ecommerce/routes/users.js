@@ -44,14 +44,7 @@ router.post('/user/address/delete',auth, userscontroller.deleteaddress)
 
 // Carga nueva imagen
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null,path.join(__dirname, '../public/images'))
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-    }
-  })
+const storage = multer.memoryStorage()
 
   const upload = multer({ storage: storage,
      fileFilter: function (req, file, cb){

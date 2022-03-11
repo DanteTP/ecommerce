@@ -105,17 +105,12 @@ module.exports = {
         res.render('user',{title:'express',user:user,screen:'editaddresssucc',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
     },
     addimage: async (req,res,next) =>{
-        //   let data =  await sharp(req.file.path)
-        //    .resize({
-        //     width: 50,
-        //   })
-        //   .toFormat("jpeg", { mozjpeg: true })
-        //   .toFile(`${req.file.path}compresed.jpeg`)
-        //   res.send(req.file)
         let errors = validationResult(req)
-        if(!errors.isEmpty()){
+        if(!errors.isEmpty() || req.file==undefined){
         res.render('user',{title:'express',user:req.user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:errors.errors})    
         }else{
+        const sizedimg = await sharp(req.file.buffer).resize(100,100).toBuffer()
+        let name= `userimg-${Date.now()}.png`
         let previmg = await db.Userimages.findOne({where:{User_Id:req.body.User_Id}})
         if (previmg){
                 fs.rm(path.join(__dirname,'../public/images/',previmg.dataValues.Name),(err) => {
@@ -125,21 +120,25 @@ module.exports = {
                         return;
                     }
                     console.log("File deleted successfully")})
-            
         }            
         if (previmg){
+                // actualizo imagen en base de datos
                 let image = await db.Userimages.update({
-                Name:req.file.filename},{where:{id:previmg.dataValues.id}})
+                Name:name},{where:{id:previmg.dataValues.id}})
+                fs.writeFileSync(path.join(__dirname,`../public/images/${name}`),sizedimg)
+                // traigo usuario para renderizar de nuevo
                 let user = await db.Users.findByPk(req.body.User_Id, {include:['direccionesusuario','imagenusuario']})
+                // borro password
                 user.Password=''
                 req.cookies.Usercookie? res.cookie('Usercookie',user,{maxAge:1000*60*60*24*30}):req.session.Userdata = user;
                 res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})    
             }else{
             let data = {
-                    Name:req.file.filename,
+                    Name:name,
                     User_Id:req.body.User_Id
                 }
             let image = await db.Userimages.create(data)
+            fs.writeFileSync(path.join(__dirname,`../public/images/${name}`),sizedimg)
             let user = await db.Users.findByPk(req.body.User_Id, {include:['direccionesusuario','imagenusuario']})
             user.Password=''
             req.cookies.Usercookie? res.cookie('Usercookie',user,{maxAge:1000*60*60*24*30}):req.session.Userdata = user;
