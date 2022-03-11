@@ -33,23 +33,23 @@ window.onload = () =>{
 
 
     // API PROVINCES ADD ADDRESS
-    // fetch('https://apis.datos.gob.ar/georef/api/provincias')
-    // .then(response => response.json())
-    // .then(data => {
-    //     for(let i=0 ; i<data.provincias.length ; i++){
-    //        provselect.innerHTML+=`<option value="${data.provincias[i].nombre}">${data.provincias[i].nombre}</option>`
-    //     }
-    //     Cityselect.innerHTML='<option value="">Por favor selecciona una ciudad</option>'
-    //     })
-    // provselect.addEventListener('change',function(){
-    //     fetch('https://apis.datos.gob.ar/georef/api/localidades?provincia='+provselect.value+'&max=5000')
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         for (let i = 0; i < data.localidades.length; i++) {
-    //             Cityselect.innerHTML+=`<option value="${data.localidades[i].nombre}">${data.localidades[i].nombre}</option>`
-    //                     }
-    //     })
-    // })
+    fetch('https://apis.datos.gob.ar/georef/api/provincias')
+    .then(response => response.json())
+    .then(data => {
+        for(let i=0 ; i<data.provincias.length ; i++){
+           provselect.innerHTML+=`<option value="${data.provincias[i].nombre}">${data.provincias[i].nombre}</option>`
+        }
+        Cityselect.innerHTML='<option value="">Por favor selecciona una ciudad</option>'
+        })
+    provselect.addEventListener('change',function(){
+        fetch('https://apis.datos.gob.ar/georef/api/localidades?provincia='+provselect.value+'&max=5000')
+        .then(response => response.json())
+        .then(data => {
+            for (let i = 0; i < data.localidades.length; i++) {
+                Cityselect.innerHTML+=`<option value="${data.localidades[i].nombre}">${data.localidades[i].nombre}</option>`
+                        }
+        })
+    })
  
 // Screen msg
 
@@ -152,12 +152,14 @@ window.onload = () =>{
                 for(let x=0 ; x<validators.length;x++){
                         validators[x].innerHTML=''
                     }
-                datahidden[e].classList.add('hidden')}
+                datahidden[e].classList.add('hidden')
+                editdata.classList.add('hidden')
+            }
             }
         datahidden[i].classList.remove('hidden') 
         } )
         }
-
+    
     botonh.addEventListener('click',function(){
         for(let e=0;e<datahidden.length;e++){
         datahidden[e].classList.add('hidden')

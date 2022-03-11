@@ -1,7 +1,10 @@
 var express = require('express');
+const productcontroller = require('../controllers/productcontroller');
 var router = express.Router();
 var prodcontroller = require('../controllers/productcontroller')
 let auth = require('../middlewares/others/session/cookie')
+let uservalidator = require('../middlewares/Validators/usersvalidators')
+
 
 //GET
 // Carga pantalla detalle producto
@@ -20,31 +23,14 @@ router.get('/seacrhcontent',auth, prodcontroller.searchbarcontent)
 // cart view
 router.get('/cart',auth,prodcontroller.cartview)
 
+router.get('/cart/login',auth,prodcontroller.cartlogin)
+
+router.post('/cart/checkout',uservalidator.userlogin,prodcontroller.carcheckoutscreen)
 
 
 
 
 
-
-// Carga pantalla carga producto
-router.get('/new', function(req, res, next) {
-  res.render('addprod', { title: 'Express',user:''});
-})
-// Carga productos luego de búsqueda
-
-// Carga productos por búsqueda en Menú
-
-//POST
-// Creacion producto nuevo
-
-
-// Pago via Paypal o MercadoPago
-
-// Finalización de la compra y creación del pedido
-
-router.get('/search', function(req, res, next) {
-  res.render('searchcontent', { title: 'Express',user:''  });
-})
 
 
 module.exports = router;

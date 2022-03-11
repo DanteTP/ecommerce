@@ -4,7 +4,6 @@ var router = express.Router();
 let userscontroller = require('../controllers/usercontroller')
 let uservalidator = require('../middlewares/Validators/usersvalidators')
 const multer  = require('multer')
-const { check, body, validationResult } = require('express-validator')
 let auth = require('../middlewares/others/session/cookie')
 
 
