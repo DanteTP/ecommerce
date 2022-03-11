@@ -4,7 +4,10 @@ const multer  = require('multer')
 const fs = require('fs')
 const path = require('path');
 const sharp = require('sharp');
-
+const { validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
+var cookieParser = require('cookie-parser')
+const session = require('express-session');
 
 module.exports = {
       home: async(req,res,next)=>{
@@ -84,5 +87,34 @@ module.exports = {
     }})
     let cat = await db.Categories.findByPk(req.params.generalcategoryId)
     res.render('gencatcontent',{title:'express',user:req.user,data:categories,filter,formatNumber:formatNumber,cat:cat.Name})
-  }
+  },
+  cartlogin: (req,res,next)=>{
+    if(req.user!==''){
+      // modificar pantalla user por checkout detail
+      res.send('estoy en checkout')
+      // res.render('user',{title:'express',user:req.user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false',route:'cartcheckout'})
+  } else
+      res.render('login', { title: 'Express',errors:'false',data:'',user:'',route:'cartcheckout'})
+  },
+  carcheckoutscreen: async (req,res,next) =>{
+    let errors = validationResult(req)
+    if(!errors.isEmpty()){
+        res.render('login',{title:'express',errors:errors.errors,data:req.body.Email})    
+    } else {
+    if(req.body.cookie){ 
+      // modificar por pantalla chekcoutdetail
+        let user = await db.Users.findOne({where:{Email: req.body.Email},include:['direccionesusuario','imagenusuario']})
+        user.Password=''
+        res.cookie('Usercookie',user,{maxAge:1000*60*60*24*30})
+        res.send('estoy en checkout con cookies')
+        // res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
+    }else{
+      // modificar por pantalla checkoutdetail
+        let user = await db.Users.findOne({where:{Email: req.body.Email},include:['direccionesusuario','imagenusuario']})
+        user.Password=''
+        req.session.Userdata = user;
+        res.send('estoy en checkout sin cookies')
+        // res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
+    }}
+    }
 }

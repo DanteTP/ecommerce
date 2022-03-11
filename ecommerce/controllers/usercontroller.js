@@ -14,9 +14,9 @@ module.exports = {
     // Get routes
     loginView :  (req,res,next) =>{
         if(req.user!==''){
-            res.render('user',{title:'express',user:req.user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
+            res.render('user',{title:'express',user:req.user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false',route:'user'})
         }else
-        res.render('login', { title: 'Express',errors:'false',data:'',user:''})}
+        res.render('login', { title: 'Express',errors:'false',data:'',user:'',route:'user'})}
     ,
     registerView :  (req,res,next) =>{
         res.render('register', { title: 'Express',errors:'false',data:'false',user:''})
@@ -149,6 +149,6 @@ module.exports = {
     },
     logout:(req,res,next) =>{
         req.cookies.Usercookie? res.clearCookie('Usercookie'):req.session.destroy();
-        res.render('index',{title:'express',user:''})
+        res.redirect('/')
     }
 }

@@ -35,7 +35,7 @@ window.onload = ()=>{
         cartbody.innerHTML+=`  <div id="rowlist" class="rowcartcontainer">
         <div class="cartendbuttons">
           <button onclick="window.location='/'">Seguir comprando</button>
-          <button>Finalizar compra</button>
+          <button onclick="window.location='/product/cart/login'">Finalizar compra</button>
         </div>
         <div class="pricecontainer" style="background-color: rgb(247, 245, 245); height: 5vh;">
           <div class="searchprice" id="carttotalprice">Total $${formatNumber(totalpricevalue)}</div>
