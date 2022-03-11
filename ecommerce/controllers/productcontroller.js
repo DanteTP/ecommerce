@@ -7,9 +7,13 @@ const sharp = require('sharp');
 
 
 module.exports = {
-    home:(req,res,next)=>{
-        
-    },
+      home: async(req,res,next)=>{
+        function formatNumber(num) {
+          return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        }
+        let products = await db.Products.findAll({where:{Offer:'true'}, order:[['Discount','DESC']],limit: 4,include:['Picturesperproduct']})
+        res.render('index',{title:'express',user:req.user,products,formatNumber})
+      },
     cartview:async(req,res,next)=>{
       res.render('cart',{title:'express',user:req.user})
     },
@@ -36,11 +40,9 @@ module.exports = {
             product,
             subcategory
           }
-          if(gencat.findIndex(item=>item.id==subcategory.id)<0){
-            gencat.push(subcategory)}
+          gencat.push(subcategory)
           data.push(dato)
-      }   
-
+      }
           res.render('searchbarcontent',{title:'express',user:req.user,data:data,formatNumber:formatNumber,gencat,search})
       },
     menusubcatcontent: async (req,res,next)=>{

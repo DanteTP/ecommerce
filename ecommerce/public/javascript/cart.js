@@ -1,3 +1,4 @@
+
 window.onload = ()=>{
     let pcart = JSON.parse(localStorage.getItem('cart'))
     let cart = pcart.map(items=>{
@@ -8,6 +9,9 @@ window.onload = ()=>{
             :items
     })
     localStorage.setItem('cart',JSON.stringify(cart))
+    let totalpricevalue = cart.reduce((acc,val)=>{
+        return acc + val.subtotal
+    },0)
     function formatNumber(num) {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
       }
@@ -27,12 +31,29 @@ window.onload = ()=>{
         </div></div>`
         }
     
+    if(cart.length>0){
+        cartbody.innerHTML+=`  <div id="rowlist" class="rowcartcontainer">
+        <div class="cartendbuttons">
+          <button onclick="window.location='/'">Seguir comprando</button>
+          <button>Finalizar compra</button>
+        </div>
+        <div class="pricecontainer" style="background-color: rgb(247, 245, 245); height: 5vh;">
+          <div class="searchprice" id="carttotalprice">Total $${formatNumber(totalpricevalue)}</div>
+         </div>
+      </div>`
+    } else{
+        cartbody.innerHTML+=`<div id="rowlist" class="rowcartcontainer"><div>Lo setimos pero al parecer tu carrito esta vacío</div>
+        <div class="cartendbuttons"><button onclick="window.location='/'">Seguir comprando</button></div></div>`
+    }
+    
     let deletebuttons = document.querySelectorAll('.cartdelete')
     let id = document.querySelectorAll('#cartvalueid')
     let addbutton = document.querySelectorAll('#counteradd')
     let susbutton = document.querySelectorAll('#countsus')
     let countervalue = document.querySelectorAll('#countvalue')
-    
+    let price = document.querySelectorAll('.searchprice')
+    let total = document.getElementById('carttotalprice')
+
     // Deleting items from cart
     for (let index = 0; index < deletebuttons.length; index++) {
         deletebuttons[index].addEventListener('click',()=>{
@@ -48,11 +69,18 @@ window.onload = ()=>{
         let ncart = cart.map(items=>{return items.data.id==Number(id[index].value)?
         items={
             data:items.data,
-            qty:value,
-            subtotal:items.data.Price*value
+            qty:value>items.data.Stock?items.data.Stock:value,
+            subtotal:items.data.Price*(value>items.data.Stock?items.data.Stock:value)
             }:items})
         localStorage.setItem('cart',JSON.stringify(ncart))
-        location.reload() })}
+        countervalue[index].innerText=`${ncart[index].qty}`
+        price[index].innerText=`$${formatNumber(ncart[index].subtotal)}`
+        let totalpricevalue = ncart.reduce((acc,val)=>{
+            return acc + val.subtotal
+        },0)
+        total.innerText=`Total $${formatNumber(totalpricevalue)}`
+        // location.reload()
+     })}
 
         for (let index = 0; index < susbutton.length; index++) {
             susbutton[index].addEventListener('click',()=>{
@@ -64,7 +92,14 @@ window.onload = ()=>{
                         subtotal:items.data.Price*(value<1?1:value)
                     }:items})
                 localStorage.setItem('cart',JSON.stringify(ncart))
-                location.reload()})}
+                countervalue[index].innerText=`${ncart[index].qty}`
+                price[index].innerText=`$${formatNumber(ncart[index].subtotal)}`
+                let totalpricevalue = ncart.reduce((acc,val)=>{
+                    return acc + val.subtotal
+                },0)
+                total.innerText=`Total $${formatNumber(totalpricevalue)}`
+
+            })}
 
         for(let i = 0;i<susbutton.length;i++){
             susbutton[i].addEventListener('mouseenter',function(){

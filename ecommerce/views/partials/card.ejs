@@ -1,13 +1,13 @@
 <div class="card" >
     <div class="cardimg">
         <div id="cprev" style="margin-right: 3%;"><</div>
-        <img id="cardimg" src="/images/Comedero-Dispenser-Alimentador-Programable.jpg" alt="">
-        <img id="cardimg" src="/images/prueba.jpeg" alt="" class="hidden">
-        <img id="cardimg" src="/images/logoweb2.png" alt="" class="hidden">
+        <img id="cardimg" src="/images/<%= products[i].Picturesperproduct[0].Name %>" alt="">
+        <img id="cardimg" src="/images/<%= products[i].Picturesperproduct[1].Name %>" alt="" class="hidden">
+        <img id="cardimg" src="/images/<%= products[i].Picturesperproduct[2].Name %>" alt="" class="hidden">
         <div id="cnext" style="margin-left: 3%;">></div>
     </div>
-    <a href="/product/detail/<%= i  %> " style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-decoration: none;">
-    <div class="cardname"><p>Lorem ipsum dolor sit amet consectetur.</p></div>
-    <div class="cardprice">$1.000</div>
+    <a href="/product/detail/<%= products[i].id %> " style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-decoration: none;">
+    <div class="cardname"><p><%= products[i].Name %> </p></div>
+    <div class="cardprice">$<%= formatNumber(products[i].Price) %> </div>
     </a>
 </div>
