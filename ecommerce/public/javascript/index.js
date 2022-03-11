@@ -40,6 +40,14 @@ window.onload = ()=>{
                 cardimgs[index].classList.remove('hidden')
                 }
             }
+        }else{
+            index=initialindex
+            for(let i=initialindex;i<=cardmax;i++){
+            if(i!==index){
+                cardimgs[i].classList.add('hidden')
+            }else{
+                cardimgs[index].classList.remove('hidden')
+                }}
         }
         })
         pcontrol[x].addEventListener('click',function(){
@@ -50,11 +58,18 @@ window.onload = ()=>{
                     cardimgs[i].classList.add('hidden')
                 }else{
                     cardimgs[index].classList.remove('hidden')
-                    }
-                }
+                    }}}
+            else{
+                index=indexmax
+                for(let i=initialindex;i<=cardmax;i++){
+                    if(i!==index){
+                        cardimgs[i].classList.add('hidden')
+                    }else{
+                        cardimgs[index].classList.remove('hidden')
+                        }}
             }
-            })
-        
+            
+        }) 
     }
 
     for(let i=0; i<pcontrol.length;i++){
