@@ -13,5 +13,6 @@ var router = express.Router();
 router.get('/', auth, productcontroller.home)
 
 
+
  
 module.exports = router;

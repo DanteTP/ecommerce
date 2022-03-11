@@ -1,3 +1,20 @@
+.rowcartcontainer{
+    display: flex;
+    justify-content: space-around;
+    height: fit-content;
+    flex-direction: line;
+    flex-wrap: wrap;
+    margin-top: 1%;
+    align-items: center;
+    width: 60%;
+}
+
+.cartimgcontainer{
+    width: 20%;
+    background-color: white;
+    height: 12vh;
+}
+
 .cartcounter{
     width: 35%;
     border: 1px solid #cacaca;
@@ -46,24 +63,69 @@
     font-size: 120%;
     font-weight: 500;
 }
+.pricecartcontainer{
+    height: 12vh;
+    width: 20%;
+    background-color: rgb(233, 238, 243);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carterimg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carterimg img{
+    width: 50%;
+    height: 12vh;
+}
+
+.cartimgcontainer{
+    width: 20%;
+    background-color: white;
+    height: 12vh;
+}
 
 @media (max-width:599px) {  
+    .rowcartcontainer{
+        width: 70%;
+    }
     .carttitlecontainer{
         height: 8vh;
     }
-    .pricecontainer{
+    .pricecartcontainer{
         height: 8vh;
     }
-    .filterimg img{
+
+    .cartimgcontainer{
         height: 8vh;
     }
-    .imgcontainer{
+    .carterimg{
         height: 8vh;
     }
     .carttitlecontainer h1{
         font-size: 60%;
         width: 90%;
     }
+    .carterimg img{
+        width: 50%;
+        height: 8vh;
+    }
+
+    .carterimg img{
+        width: 60%;
+
+    }
+    
     .countervalue{
         font-size: 50%;
     }
@@ -80,16 +142,23 @@
     }
 }
 @media (min-width:600px) and (max-width:799px){
+    .rowcartcontainer{
+        width: 70%;
+    }
     .carttitlecontainer{
         height: 8vh;
     }
-    .pricecontainer{
+    .pricecartcontainer{
         height: 8vh;
     }
-    .filterimg img{
+    .cartimg img{
         height: 8vh;
     }
-    .imgcontainer{
+    .cartimgcontainer{
+        height: 8vh;
+    }
+    .carterimg img{
+        width: 50%;
         height: 8vh;
     }
     .carttitlecontainer h1{
@@ -112,7 +181,40 @@
     }
 }  
 @media (min-width:800px) {
-
-    }  
+    .carttitlecontainer{
+        height: 8vh;
+    }
+    .pricecartcontainer{
+        height: 8vh;
+    }
+    .cartimg img{
+        height: 8vh;
+    }
+    .cartimgcontainer{
+        height: 8vh;
+    }
+    .carttitlecontainer h1{
+        font-size: 100%;
+        width: 100%;
+    }
+    .carterimg img{
+        width: 50%;
+        height: 8vh;
+    }
+    .countervalue{
+        font-size: 70%;
+    }
+    .counterbut{
+        font-size: 70%;
+    }
+    .cartcounter{
+        width: 25%;
+        height: 2vh;
+    }
+    .cartdelete{
+        font-size: 70%;
+        margin-left: 15%;
+    }
+}  
 
 

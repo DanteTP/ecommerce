@@ -34,7 +34,7 @@ a{
     flex-wrap: wrap;
     margin-top: 1%;
     align-items: center;
-    width: 60%;
+    width: 100%;
 }
 .rowcontainerh{
     display: none;
@@ -51,7 +51,7 @@ a{
 .imgcontainer{
     width: 20%;
     background-color: white;
-    height: fit-content;
+    height: 12vh;
 }
 
 .titlecontainer{
