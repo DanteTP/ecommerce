@@ -7,19 +7,11 @@
     <div class="filterbody">
       <div class="filteroptions">
       <div class="filterinput">
-        <input id="range" type="range" value="0" min="0" max="10000" step="1000" list="tickmarks">
+        <input id="range" type="range" value="0" min="0" max="<%= max %>" list="tickmarks">
         <datalist id="tickmarks">
-          <option value="0">
-          <option value="1000">
-          <option value="2000">
-          <option value="3000">
-          <option value="4000">
-          <option value="5000">
-          <option value="6000">
-          <option value="7000">
-          <option value="8000">
-          <option value="9000">
-          <option value="10000">
+          <% for( let index = 0; index < (max/1000); index++ ) { %>
+            <option value="<%= index*1000 %>">
+          <% } %>
         </datalist>
         <div id="rangevalue" class="rangevalue"></div>
       </div>
@@ -30,6 +22,8 @@
             <option id="catoption" value="<%= filter[index].id %>"><%= filter[index].Name %> </option>
           <% } %>
         </select>
+        <div id="priceup" style="margin-left: 3%;"><i class="fa-solid fa-arrow-up-9-1"></i></div>
+        <div id="pricedown" style="margin-left: 3%;"><i class="fa-solid fa-arrow-down-1-9"></i></div>
       </div>
       </div>
       <div class="routescontainer"><a style="text-decoration: none; color: grey;" ><%= cat %> </a><a id="categoryfilterroute" style="text-decoration: none; color: grey;"></a> </div>

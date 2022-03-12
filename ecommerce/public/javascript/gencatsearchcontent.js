@@ -13,12 +13,15 @@ window.onload = ()=>{
       let categoryfilter = document.getElementById('categoryfilter')
       let cataddress = document.getElementById('categoryfilterroute')
       let options = document.querySelectorAll('#catoption')
+      let filterUp = document.getElementById('priceup')
+      let filterdown = document.getElementById('pricedown')
 
       let prevfilter = {
           price:Number(range.max),
-          category:0
+          category:0,
+          order:0
       }
-      let searchfiltered = []
+      let searchfiltered = data
       rangevalue.innerHTML=`${formatNumber(range.value)}`
       
       range.addEventListener('change',()=>{
@@ -31,6 +34,15 @@ window.onload = ()=>{
           }else{
               searchfiltered = data.filter((items)=>{
                   return items.Price<= prevfilter.price || items.Category_Id==prevfilter.category})
+          }
+          if(prevfilter.order=='up'){
+            searchfiltered.sort((a,b)=>{
+              return b.Price - a.Price
+           })
+          }else if(prevfilter.order=='down'){
+            searchfiltered.sort((a,b)=>{
+              return a.Price - b.Price
+           })
           }
           for(let i=0;i<searchfiltered.length;i++){
               filtercontent.innerHTML+=`<div id="rowlist" class="rowcontainer">
@@ -64,6 +76,15 @@ window.onload = ()=>{
             option.value==prevfilter.category?found=option:''
           }
           found.value>0?cataddress.innerHTML=` > ${found.innerText}`:cataddress.innerHTML=''
+          if(prevfilter.order=='up'){
+            searchfiltered.sort((a,b)=>{
+              return b.Price - a.Price
+           })
+          }else if(prevfilter.order=='down'){
+            searchfiltered.sort((a,b)=>{
+              return a.Price - b.Price
+           })
+          }
           for(let i=0; i < searchfiltered.length;i++){
                   filtercontent.innerHTML+=`<div id="rowlist" class="rowcontainer">
                   <input id="prodcategory" type="hidden" name="" value="<%= index %> ">
@@ -82,9 +103,52 @@ window.onload = ()=>{
   
   
       })
+      filterUp.addEventListener('click',()=>{
+          prevfilter.order=='up'
+          filtercontent.innerHTML=''
+          searchfiltered.sort((a,b)=>{
+            return b.Price - a.Price
+         })
+         for(let i=0;i<searchfiltered.length;i++){
+          filtercontent.innerHTML+=`<div id="rowlist" class="rowcontainer">
+            <div class="imgcontainer">
+              <div class="filterimg">
+                <img id="cardimg" src="/images/${searchfiltered[i].Picturesperproduct[0].Name}" alt="">
+            </div>
+            </div>
+            <a href="/product/detail/${searchfiltered[i].id}" class="titlecontainer" style="text-decoration: none;" >
+            <div class="titlecontainer"><h1>${searchfiltered[i].Name}</h1></div></a>
+            <a href="/product/detail/${searchfiltered[i].id}" class="pricecontainer" style="text-decoration: none;" ><div class="pricecontainer">
+              <div class="searchprice">$${formatNumber(searchfiltered[i].Price)}</div>
+            </div></a>
+        </div>`
+      }
 
+      })
+      filterdown.addEventListener('click',()=>{
+        prevfilter.order=='down'
+        filtercontent.innerHTML=''
+        searchfiltered.sort((a,b)=>{
+          return a.Price - b.Price
+       })
+       for(let i=0;i<searchfiltered.length;i++){
+        filtercontent.innerHTML+=`<div id="rowlist" class="rowcontainer">
+          <div class="imgcontainer">
+            <div class="filterimg">
+              <img id="cardimg" src="/images/${searchfiltered[i].Picturesperproduct[0].Name}" alt="">
+          </div>
+          </div>
+          <a href="/product/detail/${searchfiltered[i].id}" class="titlecontainer" style="text-decoration: none;" >
+          <div class="titlecontainer"><h1>${searchfiltered[i].Name}</h1></div></a>
+          <a href="/product/detail/${searchfiltered[i].id}" class="pricecontainer" style="text-decoration: none;" ><div class="pricecontainer">
+            <div class="searchprice">$${formatNumber(searchfiltered[i].Price)}</div>
+          </div></a>
+      </div>`
+     }
 
-    })
+      })
+
+     })
 
 
 

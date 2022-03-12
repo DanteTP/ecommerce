@@ -1,10 +1,10 @@
 <div class="card" >
     <div class="cardimg">
-        <div id="cprev" style="margin-right: 3%;"><i class="fa fa-arrow-left"></i></div>
+        <div id="cprev" style="margin-right: 3%;"><i class="fa-solid fa-circle-arrow-left"></i></div>
         <img id="cardimg" src="/images/<%= products[i].Picturesperproduct[0].Name %>" alt="">
         <img id="cardimg" src="/images/<%= products[i].Picturesperproduct[1].Name %>" alt="" class="hidden">
         <img id="cardimg" src="/images/<%= products[i].Picturesperproduct[2].Name %>" alt="" class="hidden">
-        <div id="cnext" style="margin-left: 3%;"><i class="fa fa-arrow-right"></i></div>
+        <div id="cnext" style="margin-left: 3%;"><i class="fa-solid fa-circle-arrow-right"></i></div>
     </div>
     <a href="/product/detail/<%= products[i].id %> " style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-decoration: none;">
     <div class="cardname"><p><%= products[i].Name %> </p></div>

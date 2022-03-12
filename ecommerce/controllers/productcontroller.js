@@ -43,10 +43,18 @@ module.exports = {
             product,
             subcategory
           }
+        if(gencat.length=0){
           gencat.push(subcategory)
+        }else if(gencat.findIndex(item=>item.id==subcategory.id)<0){
+          gencat.push(subcategory)
+        }
           data.push(dato)
       }
-          res.render('searchbarcontent',{title:'express',user:req.user,data:data,formatNumber:formatNumber,gencat,search})
+        let max = products.reduce((acc,val)=>{
+          return acc>val.Price?acc:acc=val.Price
+        },0)
+        console.log(max);
+          res.render('searchbarcontent',{title:'express',user:req.user,data:data,formatNumber:formatNumber,gencat,search,max})
       },
     menusubcatcontent: async (req,res,next)=>{
       function formatNumber(num) {
@@ -62,12 +70,14 @@ module.exports = {
                   }]
                 }]
               })
-        console.log(categories)
+        let max = categories.Produtspercategory.reduce((acc,val)=>{
+          return acc>val.Price?acc:acc=val.Price
+        },0)
         let filter = await db.Categories.findByPk(categories.Subcategory)
-        console.log(filter);
-        res.render('subcatcontent',{title:'express',user:req.user,data:categories,filter,formatNumber:formatNumber})
+        res.render('subcatcontent',{title:'express',user:req.user,data:categories,filter,formatNumber:formatNumber,max})
     },
     menugeneralcatcontent: async (req,res,next)=>{
+      let max = ''
       function formatNumber(num) {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
       }
@@ -85,8 +95,14 @@ module.exports = {
     let filter = await db.Categories.findAll({where:{
         Subcategory:req.params.generalcategoryId
     }})
+    for(let category of categories){
+      let nmax = category.Produtspercategory.reduce((acc,val)=>{
+        return acc>val.Price?acc:acc=val.Price
+      },0)
+      nmax>max?max=nmax:max=max
+    }
     let cat = await db.Categories.findByPk(req.params.generalcategoryId)
-    res.render('gencatcontent',{title:'express',user:req.user,data:categories,filter,formatNumber:formatNumber,cat:cat.Name})
+    res.render('gencatcontent',{title:'express',user:req.user,data:categories,filter,formatNumber:formatNumber,cat:cat.Name,max})
   },
   cartlogin: (req,res,next)=>{
     if(req.user!==''){
