@@ -27,7 +27,6 @@ menucatcontent: async (req,res,next)=>{
   res.json({
             meta:{
                 status: 200,
-                totalItems: categories.length,
                 link: '/api/product/search/:categoryId'
             },
             data: categories
@@ -74,14 +73,15 @@ res.json({
   categories: categories}})
 },
 cartadd:async(req,res,next)=>{
-  let prod = await db.Products.findByPk(req.params.ProdId,{include:['Picturesperproduct']})
+  let prod = await db.Products.findByPk(req.params.ProdId,{include:['Picturesperproduct','CategoryperProduct']})
   console.log(prod);
   let datap = {
     id:prod.id,
     Name: prod.Name,
     Price: prod.Price,
     Stock: prod.Stock,
-    Img: prod.Picturesperproduct[0].Name
+    Category: prod.CategoryperProduct.id,
+    Img: prod.Picturesperproduct
   }
   res.json({
     meta:{

@@ -11,7 +11,10 @@ window.onload = ()=>{
     // let reviewarray = fetch
     let filterarray = [];
 
-    console.log(count + 1);
+    fetch(`/api/product/addcart/${prodcartid.value}`)
+        .then(response => response.json())
+        .then(dataf => {
+
     
     counteradd.addEventListener('click',()=>{
         if(count < max){
@@ -54,10 +57,6 @@ window.onload = ()=>{
     
         cartadd.addEventListener('click',(e)=>{
         e.preventDefault()
-        fetch(`/api/product/addcart/${prodcartid.value}`)
-        .then(response => response.json())
-        .then(dataf => {
-
             if(localStorage.getItem('cart')){
             let pcart = JSON.parse(localStorage.getItem('cart'))
             if(pcart.findIndex(item=>item.data.id==prodcartid.value)>=0){

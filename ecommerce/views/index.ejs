@@ -15,9 +15,9 @@
         <% for( let i = 0; i < products.length; i++ ) { %>
         <% include ./partials/card.ejs %> 
       <% } %></div>
-      <div class="indextitle">Visitados recientemente</div>
-      <div id="recently" class="cards"></div>
-    </div>
+      <div id="recomendedtitle" class="indextitle hidden">Recomendados</div>
+      <div id="recomended" class="cards">
+      </div>
   </body>
   <script src="/javascript/index.js"></script>
   <footer>

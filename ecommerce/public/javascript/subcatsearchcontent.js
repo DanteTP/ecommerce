@@ -4,6 +4,8 @@ window.onload = ()=>{
     .then(response => response.json())
     .then(dataf => {
       let data = dataf.data.Produtspercategory
+      localStorage.setItem('searched',JSON.stringify(dataf.data.Produtspercategory))
+
       let filtercontent = document.getElementById('filtercontet')
       let rangevalue = document.getElementById('rangevalue')
       let range = document.getElementById('range')

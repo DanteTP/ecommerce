@@ -5,6 +5,7 @@ window.onload = ()=>{
     .then(dataf => {
 
       let data = dataf.data
+      localStorage.setItem('searched',JSON.stringify(data.products))
       function formatNumber(num) {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
       }

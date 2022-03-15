@@ -20,7 +20,7 @@ window.onload = ()=>{
         cartbody.innerHTML+=`<div id="rowlist" class="rowcartcontainer">
         <input id='cartvalueid' type="hidden" value='${cart[index].data.id}'>
         <div class="cartimgcontainer"><div class="carterimg">
-        <img id="cardimg" src="/images/${cart[index].data.Img}" alt=""></div></div>
+        <img id="cardimg" src="/images/${cart[index].data.Img[0].Name}" alt=""></div></div>
         <div  class="carttitlecontainer">
         <h1>${cart[index].data.Name}</h1><div class="cartcounter">
         <div id="countsus" class="counterbut"><i class="fas fa-minus"></i></div>
