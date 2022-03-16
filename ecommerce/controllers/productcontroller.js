@@ -132,5 +132,21 @@ module.exports = {
         res.send('estoy en checkout sin cookies')
         // res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
     }}
-    }
+    },
+    registercheckoutview :  (req,res,next) =>{
+      res.render('register', { title: 'Express',errors:'false',data:'false',user:'',route:'cart',route:'cart'})
+    },
+    registercheckoutscreen : async (req,res,next) =>{
+      let errors = validationResult(req)
+      if(!errors.isEmpty()){
+          res.render('register',{title:'express',errors:errors.errors,data:req.body,user:''})        
+      }else{
+      req.body.Password=bcrypt.hashSync(req.body.Password,10)
+      let nuser = await db.Users.create(req.body)
+      let user = await db.Users.findByPk(nuser.id, {include:['direccionesusuario','imagenusuario']})
+      req.session.Userdata = user
+        
+      // res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
+  }}
+    
 }

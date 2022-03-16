@@ -27,7 +27,9 @@ router.get('/cart/login',auth,prodcontroller.cartlogin)
 
 router.post('/cart/checkout',uservalidator.userlogin,prodcontroller.carcheckoutscreen)
 
+router.get('/cart/register',auth,prodcontroller.registercheckoutview)
 
+router.post('/cart/registercheckout',uservalidator.usercreator,prodcontroller.registercheckoutscreen)
 
 
 

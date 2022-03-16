@@ -6,7 +6,11 @@
     <div class="regbody">
         <div class="regform">
             <div class="register">
-                <form action="/users/register/add" method="POST" id="regsubmit">
+                <% if (route=='user') { %>
+                    <form action="/users/register/add" method="POST" id="regsubmit">
+                    <% } else { %>
+                    <form action="/product/cart/registercheckout" method="POST" id="regsubmit">
+                    <% } %>
                     <div class="name">
                     <label for="Name">Nombre</label>
                     <input type="text" name="Name" id="Name" value="<% if (data) { %><%=data.Name %><% } %>">

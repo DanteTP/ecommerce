@@ -19,7 +19,7 @@ module.exports = {
         res.render('login', { title: 'Express',errors:'false',data:'',user:'',route:'user'})}
     ,
     registerView :  (req,res,next) =>{
-        res.render('register', { title: 'Express',errors:'false',data:'false',user:''})
+        res.render('register', { title: 'Express',errors:'false',data:'false',user:'',route:'user'})
     },
     // POST routes
     createuser : async (req,res,next) =>{
