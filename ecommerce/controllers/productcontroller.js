@@ -145,7 +145,7 @@ module.exports = {
       let nuser = await db.Users.create(req.body)
       let user = await db.Users.findByPk(nuser.id, {include:['direccionesusuario','imagenusuario']})
       req.session.Userdata = user
-        
+      // renderizar vista de salida para finalizar pedido
       // res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
   }}
     

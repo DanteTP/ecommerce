@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <% include ./partials/head.ejs %> 
+  <body class="body">
+    <% include ./partials/header.ejs %> 
+    <div class="checkbody">
+    <div class="checkinfo">
+    <% for( let index = 0; index < 3; index++ ) { %>
+    <div class="chcontainer">
+        <div class="choimg"><img src="/images/prueba.jpeg" alt=""></div>
+        <div class="chodata">
+            <h5 style="margin: 0;">Lorem ipsum dolor sit amet consectetur adipisicing.</h5>
+            <div style="display: flex;justify-content: flex-start;font-size: 70%;"><p>Cantidad unidades xx</p><p style="margin-left: 5%;">Precio $2500000</p></div>
+        </div>
+        <div class="chtotal">$ 250000</div></div>
+    <% } %>
+    <div class="chcontainer">
+        <div style="width: 82%; height: 8vh; line-height: 8vh; text-align: right;" >TOTAL</div>
+        <div class="chtotal">TOTAL</div>
+    </div>
+    </div>  
+    <div class="checkinfo">
+    <div><select name="" id=""></select></div>
+    <form action="/users/user/address/add" method="POST" id="addsubmit">
+        <div class="name">
+        <label for="Name">Dirección</label>
+        <input type="text" name="Adress" id="Address" value="<% if (data) { %><%=data.Adress %><% } %>">
+        <label for="Surname">Province</label>
+        <select name="Province" id="Provselect">
+            <option value="">Por favor selecciona una provincia</option>
+        </select>
+        <label for="Surname">City</label>
+        <select name="City" id="Cityselect"></select>
+        <label for="Surname">Zip Code</label>
+        <input id="Zip_Code" type="text" name="Zip_Code" id="Address" value="<% if (data) { %><%=data.Zip_Code %><% } %>">
+        <input type="hidden" name="User_Id" value="<%= user.id %>">
+        </div>
+        <button id="newaddress" class="regbutton" type="submit">Cargar</button>
+        </form>
+    </div>
+</div>
+  </body>
+  <footer>
+    PIe de pagina
+  </footer>

@@ -31,6 +31,9 @@ router.get('/cart/register',auth,prodcontroller.registercheckoutview)
 
 router.post('/cart/registercheckout',uservalidator.usercreator,prodcontroller.registercheckoutscreen)
 
+router.get('/prueba',auth,function(req,res,next){
+    res.render('checkout',{title:'express',user:'false',errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})})
+
 
 
 
