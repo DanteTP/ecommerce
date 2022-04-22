@@ -15,6 +15,7 @@ window.onload = ()=>{
         
         if( (emailpattern.test(email.value) && passpattern.test(password.value)) && password.value.length>7){
             cookiecheck.checked?localStorage.setItem('cookie','aceptada'):localStorage.getItem('cookie')=='rechazada'
+
         }else {
             event.preventDefault()
             msg.innerHTML = `<p style="color: red; font-weight: bold;">Usuario y/o contraseña incorrecto</p>`

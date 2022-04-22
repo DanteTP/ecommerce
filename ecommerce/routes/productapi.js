@@ -12,5 +12,7 @@ router.get('/product/searchbar/:searchvalue', prodcontroller.searchbar)
 
 router.get('/product/addcart/:ProdId', prodcontroller.cartadd)
 
+router.post('/product/fetch',prodcontroller.cartproductreview)
+
 
 module.exports = router;

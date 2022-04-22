@@ -20,14 +20,21 @@
     </div>
     </div>  
     <div class="checkinfo">
-    <div><select name="" id=""></select></div>
+    <input type="hidden" name="" value="<%= user.id %> ">
+    <div><select name="" id="">
+        <option value="block">Selecciona una opción</option>
+        <% for( let index = 0; index < user.direccionesusuario.length; index++ ) { %>
+        <option value="<%= user.direccionesusuario[index].id %>"><%= user.direccionesusuario[index].Adress %> - <%= user.direccionesusuario[index].City %></option>
+        <% } %>
+        <option value="0">Carga una nueva dirección</option>
+    </select></div>
     <form action="/users/user/address/add" method="POST" id="addsubmit">
         <div class="name">
         <label for="Name">Dirección</label>
         <input type="text" name="Adress" id="Address" value="<% if (data) { %><%=data.Adress %><% } %>">
         <label for="Surname">Province</label>
         <select name="Province" id="Provselect">
-            <option value="">Por favor selecciona una provincia</option>
+        <option value="">Por favor selecciona una provincia</option>
         </select>
         <label for="Surname">City</label>
         <select name="City" id="Cityselect"></select>

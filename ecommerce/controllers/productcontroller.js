@@ -106,9 +106,7 @@ module.exports = {
   },
   cartlogin: (req,res,next)=>{
     if(req.user!==''){
-      // modificar pantalla user por checkout detail
-      res.send('estoy en checkout')
-      // res.render('user',{title:'express',user:req.user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false',route:'cartcheckout'})
+      res.render('checkout',{title:'express',user:req.user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
   } else
       res.render('login', { title: 'Express',errors:'false',data:'',user:'',route:'cartcheckout'})
   },
@@ -118,19 +116,15 @@ module.exports = {
         res.render('login',{title:'express',errors:errors.errors,data:req.body.Email})    
     } else {
     if(req.body.cookie){ 
-      // modificar por pantalla chekcoutdetail
         let user = await db.Users.findOne({where:{Email: req.body.Email},include:['direccionesusuario','imagenusuario']})
         user.Password=''
         res.cookie('Usercookie',user,{maxAge:1000*60*60*24*30})
-        res.send('estoy en checkout con cookies')
-        // res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
+        res.render('checkout',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
     }else{
-      // modificar por pantalla checkoutdetail
         let user = await db.Users.findOne({where:{Email: req.body.Email},include:['direccionesusuario','imagenusuario']})
         user.Password=''
         req.session.Userdata = user;
-        res.send('estoy en checkout sin cookies')
-        // res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
+        res.render('checkout',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
     }}
     },
     registercheckoutview :  (req,res,next) =>{
@@ -139,14 +133,12 @@ module.exports = {
     registercheckoutscreen : async (req,res,next) =>{
       let errors = validationResult(req)
       if(!errors.isEmpty()){
-          res.render('register',{title:'express',errors:errors.errors,data:req.body,user:''})        
+          res.render('register',{title:'express',errors:errors.errors,data:req.body,user:'',route:'cart'})        
       }else{
       req.body.Password=bcrypt.hashSync(req.body.Password,10)
       let nuser = await db.Users.create(req.body)
       let user = await db.Users.findByPk(nuser.id, {include:['direccionesusuario','imagenusuario']})
       req.session.Userdata = user
-      // renderizar vista de salida para finalizar pedido
-      // res.render('user',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
+      res.render('checkout',{title:'express',user:user,errors:'false',screen:'home',usererrors:'false',passerrors:'false',addresserror:'false',data:'false',imageerror:'false'})
   }}
-    
 }

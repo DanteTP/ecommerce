@@ -90,5 +90,10 @@ cartadd:async(req,res,next)=>{
     },
     data: datap
   })
+},
+cartproductreview: async(req,res,next)=>{
+  console.log('estoy');  
+  console.log(req.body);
+  res.json(req.body)
 }
 }
