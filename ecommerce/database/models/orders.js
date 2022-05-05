@@ -17,6 +17,10 @@ const Orders = sequelize.define('Orders', {
   User_Id: {
     type: DataTypes.INTEGER,
     allowNull: false
+  },
+  Order_status:{
+    type: DataTypes.STRING,
+    allowNull: false
   }
 },{timestamps:false}, {
   // Other model options go here

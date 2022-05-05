@@ -135,22 +135,4 @@ window.onload = ()=>{
             deletebuttons[i].addEventListener('mouseleave',function(){
             document.body.style.cursor="default"
             })}             
-        
-        
-
-        // document.getElementById('fetch').addEventListener('click',()=>{
-        //     fetch('product/fetch',{
-        //         method:'POST',
-        //         body:localStorage.getItem('cart'),
-        //         headers: {
-        //             "Content-type": "application/json; charset=UTF-8"
-        //         }
-        //     })
-        //     .then(response => response.json())
-        //     .then(json =>
-        //         console.log(json)
-                
-        //         );
-
-        // })
         }

@@ -8,7 +8,6 @@ const path = require('path');
 var cookieParser = require('cookie-parser')
 const session = require('express-session');
 const sharp = require('sharp');
-const { Category } = require("@material-ui/icons");
 
 
 module.exports = {
@@ -92,8 +91,33 @@ cartadd:async(req,res,next)=>{
   })
 },
 cartproductreview: async(req,res,next)=>{
-  console.log('estoy');  
-  console.log(req.body);
-  res.json(req.body)
+
+  let purchase = []
+  for(let prod of req.body.order){
+    let cartprod = await db.Products.findByPk(prod.id)
+    cartprod = {cartprod,qty:prod.qty,subtotal:Number(cartprod.Price*prod.qty)}
+    purchase.push(cartprod)
+  }
+
+  let total = purchase.reduce((acc,val)=>{return acc + val.subtotal},0)
+  // let order = await db.Orders.create(data)
+  let dato = {
+    Amount:total,
+    Date:Date(),
+    User_Id: req.body.id,
+    Order_status:"Pago pendiente"
+  }
+
+  let order= await db.Orders.create(dato)
+  for(let prod of purchase){
+    let dato = {
+      Product_Id:prod.cartprod.id,
+      Quantity:prod.qty,
+      Order_Id:order.id
+    }
+  let orderproducts= await db.PurchaseProducts.create(dato)
+  }
+
+  res.json(order.id)
 }
 }
