@@ -11,7 +11,7 @@ window.onload = ()=>{
     // let reviewarray = fetch
     let filterarray = [];
 
-    fetch(`/api/product/addcart/${prodcartid.value}`)
+    fetch(`/productapi/product/addcart/${prodcartid.value}`)
         .then(response => response.json())
         .then(dataf => {
 

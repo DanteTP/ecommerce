@@ -4,45 +4,32 @@
   <body class="body">
     <% include ./partials/header.ejs %> 
     <div class="checkbody">
-    <div class="checkinfo">
-    <% for( let index = 0; index < 3; index++ ) { %>
-    <div class="chcontainer">
-        <div class="choimg"><img src="/images/prueba.jpeg" alt=""></div>
-        <div class="chodata">
-            <h5 style="margin: 0;">Lorem ipsum dolor sit amet consectetur adipisicing.</h5>
-            <div style="display: flex;justify-content: flex-start;font-size: 70%;"><p>Cantidad unidades xx</p><p style="margin-left: 5%;">Precio $2500000</p></div>
-        </div>
-        <div class="chtotal">$ 250000</div></div>
-    <% } %>
-    <div class="chcontainer">
-        <div style="width: 82%; height: 8vh; line-height: 8vh; text-align: right;" >TOTAL</div>
-        <div class="chtotal">TOTAL</div>
-    </div>
+    <div id="cartproductscontainer" class="checkinfo">
     </div>  
     <div class="checkinfo">
     <input id="User_Id" type="hidden" name="" value="<%= user.id %> ">
     <div><select name="" id="addressvalue">
-        <option value="block">Selecciona una opción</option>
+        <option value="block">Selecciona una dirección</option>
         <% for( let index = 0; index < user.direccionesusuario.length; index++ ) { %>
         <option value="<%= user.direccionesusuario[index].id%>"><%= user.direccionesusuario[index].Adress %> - <%= user.direccionesusuario[index].City %></option>
         <% } %>
-        <option value="na">Carga una nueva dirección</option>
+        <option value="n/a">Nueva dirección</option>
     </select></div>
-    <form action="/users/user/address/add" method="POST" id="addsubmit">
+    <form id="formcontainer" action="/users/user/address/add" method="POST" id="addsubmit">
         <div class="name">
         <label for="Name">Dirección</label>
-        <input type="text" name="Adress" id="Address" value="belgrano" disabled>
+        <input type="text" name="Adress" id="Address" value="" disabled>
         <label for="Surname">Province</label>
-        <select name="Province" id="Provselect">
-        <option value="">Por favor selecciona una provincia</option>
+        <select name="Province" id="Provselect" disabled>
         </select>
         <label for="Surname">City</label>
-        <select name="City" id="Cityselect"></select>
+        <select name="City" id="Cityselect" disabled>
+        </select>
         <label for="Surname">Zip Code</label>
-        <input id="Zip_Code" type="text" name="Zip_Code" id="Address" value="<% if (data) { %><%=data.Zip_Code %><% } %>">
+        <input id="Zip_Code" type="text" name="Zip_Code" id="Address" value="" disabled>
         <input type="hidden" name="User_Id" value="<%= user.id %>">
         </div>
-        <button id="newaddress" class="regbutton" type="submit">Cargar</button>
+        <button id="newaddress" class="regbutton" type="submit">Proceder con el pago</button>
         </form>
     </div>
 </div>

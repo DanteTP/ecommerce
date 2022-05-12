@@ -1,6 +1,6 @@
 window.onload = ()=>{
     let id = document.getElementById('categoryId')
-    fetch(`/api/product/search/${id.value}`)
+    fetch(`/productapi/product/search/${id.value}`)
     .then(response => response.json())
     .then(dataf => {
       let data = dataf.data.Produtspercategory

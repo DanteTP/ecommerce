@@ -11,7 +11,9 @@ var cookieParser = require('cookie-parser')
 var indexRouter = require('./routes/index');
 var usersRouter = require(path.join(__dirname,'./routes/users'));
 var productRouter = require(path.join(__dirname,'./routes/product'));
-var apiproductRouter = require(path.join(__dirname,'./routes/productapi'));
+var apiproductRouter = require(path.join(__dirname,'./routes/API/productapi'));
+var apiuserRouter = require(path.join(__dirname,'./routes/API/userapi'));
+
 
 var app = express();
 
@@ -39,7 +41,9 @@ app.use(
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/product', productRouter);
-app.use('/api', apiproductRouter)
+app.use('/productapi', apiproductRouter)
+app.use('/userapi', apiuserRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

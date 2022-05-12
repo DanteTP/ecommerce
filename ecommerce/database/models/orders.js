@@ -1,6 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const Users = require('./users')
 const PurchaseProducts = require('./purchaseproducts')
+const PurchaseAddress = require('./purchaseaddress')
 
 module.exports = (sequelize, Sequelize) => {
 
@@ -35,6 +36,10 @@ Orders.belongsTo(models.Users,{
 Orders.hasMany(models.PurchaseProducts,{
   as:'productsperorder',
   foreignKey:'Order_Id'
+}),
+Orders.hasOne(models.PurchaseAddress,{
+  as:"addressperorder",
+  foreignKey:"Order_Id"
 })}
 
 return Orders

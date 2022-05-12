@@ -1,6 +1,6 @@
 window.onload = ()=>{
     let id = document.getElementById('searchvalue')
-    fetch(`/api/product/searchbar/${id.value}`)
+    fetch(`/productapi/product/searchbar/${id.value}`)
     .then(response => response.json())
     .then(dataf => {
 

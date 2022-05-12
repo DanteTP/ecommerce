@@ -45,10 +45,6 @@ Products.associate = (models)=>{
     foreignKey:'Product_Id',
     as:"Reviewporproducto"
   }),
-  Products.hasMany(models.PurchaseProducts,{
-    as:"ProductsperPurchas",
-    foreignKey:"Product_Id"
-  }),
   Products.hasMany(models.Pictures,{
     as:'Picturesperproduct',
     foreignKey:'Product_Id'

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-let prodcontroller = require('../controllers/API/productcontroller')
+let prodcontroller = require('../../controllers/API/productcontroller')
 
 
 // router.get('/product/search/:categoryId', function(req,res,next){res.send('si')})
