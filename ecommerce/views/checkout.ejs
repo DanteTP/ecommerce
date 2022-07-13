@@ -2,12 +2,15 @@
 <html>
   <% include ./partials/head.ejs %> 
   <body class="body">
+    <script src="https://www.paypal.com/sdk/js?client-id=<%= paypal %>"></script>
     <% include ./partials/header.ejs %> 
+    <div id="ruta" class="ruta"><p class="rselect">Order Detail</p></div>
     <div class="checkbody">
     <div id="cartproductscontainer" class="checkinfo">
     </div>  
-    <div class="checkinfo">
+    <div id="addcontainerborder" class="checkinfo">
     <input id="User_Id" type="hidden" name="" value="<%= user.id %> ">
+    <div id='addcontainer'>
     <div><select name="" id="addressvalue">
         <option value="block">Selecciona una dirección</option>
         <% for( let index = 0; index < user.direccionesusuario.length; index++ ) { %>
@@ -15,7 +18,7 @@
         <% } %>
         <option value="n/a">Nueva dirección</option>
     </select></div>
-    <form id="formcontainer" action="/users/user/address/add" method="POST" id="addsubmit">
+    <form action="/users/user/address/add" method="POST" id="addsubmit">
         <div class="name">
         <label for="Name">Dirección</label>
         <input type="text" name="Adress" id="Address" value="" disabled>
@@ -29,8 +32,9 @@
         <input id="Zip_Code" type="text" name="Zip_Code" id="Address" value="" disabled>
         <input type="hidden" name="User_Id" value="<%= user.id %>">
         </div>
-        <button id="newaddress" class="regbutton" type="submit">Proceder con el pago</button>
-        </form>
+        <div id="paypal"></div> 
+      </form>
+      </div>
     </div>
 </div>
   </body>

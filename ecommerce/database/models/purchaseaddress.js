@@ -1,13 +1,12 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const Orders = require('./orders')
-const Products = require('./products')
 
 module.exports = (sequelize, Sequelize) => {
 
-const PurchaseAddress = sequelize.define('PurchaseAddress', {
+const PurchaseAddresses = sequelize.define('PurchaseAddresses', {
   // Model attributes are defined here
   Address: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false
   },
   Zip_Code: {
@@ -15,11 +14,11 @@ const PurchaseAddress = sequelize.define('PurchaseAddress', {
     allowNull: false
   },
   Province: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false
   },
   City: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false
   },
   Order_Id: {
@@ -30,12 +29,12 @@ const PurchaseAddress = sequelize.define('PurchaseAddress', {
   // Other model options go here
 })
 
-PurchaseAddress.associate = (models)=>{
-  PurchaseProducts.belongsTo(models.Orders,{
+PurchaseAddresses.associate = (models)=>{
+  PurchaseAddresses.belongsTo(models.Orders,{
     as:'Ordenesporaddress',
     foreignKey:"Order_Id"
   })
 }
 
-return PurchaseProducts
+return PurchaseAddresses
 };

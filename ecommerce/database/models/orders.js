@@ -22,6 +22,10 @@ const Orders = sequelize.define('Orders', {
   Order_status:{
     type: DataTypes.STRING,
     allowNull: false
+  },
+  Paypal_Id:{
+    type: DataTypes.STRING,
+    allowNull: false
   }
 },{timestamps:false}, {
   // Other model options go here
@@ -37,7 +41,7 @@ Orders.hasMany(models.PurchaseProducts,{
   as:'productsperorder',
   foreignKey:'Order_Id'
 }),
-Orders.hasOne(models.PurchaseAddress,{
+Orders.hasOne(models.PurchaseAddresses,{
   as:"addressperorder",
   foreignKey:"Order_Id"
 })}

@@ -31,21 +31,12 @@ window.onload = ()=>{
         </div></div>`
         }
     
-    let route = document.getElementById('userid')
-    let endpurchase = ''
-
-        if(route.value>0){
-            endpurchase=`<button onclick="window.location='/product/prueba'" id='fetch' >Finalizar compra</button>`
-    }else{
-        endpurchase=`<button id='fetch' onclick="window.location='/product/cart/login'" >Finalizar compra</button>`
-    }
-
 
     if(cart.length>0){
         cartbody.innerHTML+=`  <div id="rowlist" class="rowcartcontainer">
         <div class="cartendbuttons">
           <button onclick="window.location='/'">Seguir comprando</button>
-          ${endpurchase}
+          <button id='fetch' onclick="window.location='/product/cart/login'" >Finalizar compra</button>
         </div>
         <div class="pricecontainer" style="background-color: rgb(247, 245, 245); height: 5vh;">
           <div class="searchprice" id="carttotalprice">Total $${formatNumber(totalpricevalue)}</div>
